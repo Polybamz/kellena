@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -35,13 +36,13 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -68,14 +69,14 @@ const Navigation = () => {
           <div className="lg:hidden py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

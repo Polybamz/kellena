@@ -114,14 +114,18 @@ const HeroSection = () => {
                   </div>
                 </div>
                 
-                {/* Placeholder for hero image/video */}
-                <div className="w-full h-64 bg-primary-foreground/10 rounded-2xl flex items-center justify-center">
-                  <div className="text-center text-primary-foreground/60">
-                    <div className="w-16 h-16 mx-auto mb-2 bg-accent rounded-full flex items-center justify-center">
-                      <span className="text-2xl">💝</span>
-                    </div>
-                    <p>Hero Image/Video Placeholder</p>
-                  </div>
+                {/* Little Bibi Hero Image */}
+                <div className="w-full h-64 rounded-2xl overflow-hidden">
+                  <img 
+                    src="/src/assets/little-bibi-hero.jpg" 
+                    alt="Little Bibi receiving care" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center mt-4 p-4 bg-card/20 rounded-xl">
+                  <p className="text-primary-foreground/90 font-medium">
+                    "A New Life Begins – Little Bibi is now receiving care, thanks to the support of people like you."
+                  </p>
                 </div>
               </div>
             </Card>

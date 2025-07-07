@@ -27,15 +27,47 @@ const About = () => {
     }
   ];
 
-  const teamRoles = [
-    "Executive Director/CEO",
-    "Program Manager", 
-    "Project Coordinator",
-    "Finance Manager",
-    "Communications Officer",
-    "Human Resources Manager",
-    "Monitoring and Evaluation Specialist",
-    "Administrative assistant"
+  const teamMembers = [
+    {
+      name: "Dr. Sarah Mbah",
+      role: "Executive Director/CEO",
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      name: "Emmanuel Ndeh",
+      role: "Program Manager",
+      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      name: "Grace Fontem",
+      role: "Project Coordinator", 
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      name: "Peter Tabi",
+      role: "Finance Manager",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      name: "Mary Njoya",
+      role: "Communications Officer",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b932?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      name: "David Ngong",
+      role: "Human Resources Manager",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      name: "Dr. Ruth Awa",
+      role: "Monitoring and Evaluation Specialist",
+      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      name: "John Kum",
+      role: "Administrative Assistant",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face"
+    }
   ];
 
   return (
@@ -125,18 +157,23 @@ const About = () => {
             </TabsContent>
 
             <TabsContent value="team" className="mt-8">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {teamRoles.map((role, index) => (
-                  <Card key={index} className="bg-card border-border/50 hover:shadow-soft transition-all duration-300">
-                    <CardContent className="p-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                          <span className="text-primary font-semibold">{index + 1}</span>
-                        </div>
-                        <h3 className="text-lg font-medium text-foreground">
-                          {role}
-                        </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {teamMembers.map((member, index) => (
+                  <Card key={index} className="bg-card border-border/50 hover:shadow-soft transition-all duration-300 text-center">
+                    <CardContent className="p-6">
+                      <div className="mb-4">
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-20 h-20 rounded-full mx-auto object-cover border-2 border-primary/20"
+                        />
                       </div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">
+                        {member.name}
+                      </h3>
+                      <p className="text-sm text-primary font-medium">
+                        {member.role}
+                      </p>
                     </CardContent>
                   </Card>
                 ))}

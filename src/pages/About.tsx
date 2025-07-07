@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const About = () => {
   const coreValues = [
@@ -24,6 +25,17 @@ const About = () => {
       description: "We work to ensure that vulnerable individuals have access to clean water, sanitation, and essential resources for overall health and well-being.",
       icon: "🌊"
     }
+  ];
+
+  const teamRoles = [
+    "Executive Director/CEO",
+    "Program Manager", 
+    "Project Coordinator",
+    "Finance Manager",
+    "Communications Officer",
+    "Human Resources Manager",
+    "Monitoring and Evaluation Specialist",
+    "Administrative assistant"
   ];
 
   return (
@@ -76,33 +88,61 @@ const About = () => {
         </div>
       </section>
 
-      {/* Core Values */}
+      {/* Core Values & Team */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our Core Values
+              Our Organization
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide everything we do at KELLENA
+              The principles that guide us and the team that drives our mission
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {coreValues.map((value, index) => (
-              <Card key={index} className="bg-card border-border/50 text-center hover:shadow-soft transition-all duration-300">
-                <CardContent className="p-6">
-                  <div className="text-4xl mb-4">{value.icon}</div>
-                  <h3 className="text-xl font-semibold text-foreground mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {value.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Tabs defaultValue="values" className="w-full">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="values">Core Values</TabsTrigger>
+              <TabsTrigger value="team">Our Team</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="values" className="mt-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {coreValues.map((value, index) => (
+                  <Card key={index} className="bg-card border-border/50 text-center hover:shadow-soft transition-all duration-300">
+                    <CardContent className="p-6">
+                      <div className="text-4xl mb-4">{value.icon}</div>
+                      <h3 className="text-xl font-semibold text-foreground mb-3">
+                        {value.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {value.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="team" className="mt-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {teamRoles.map((role, index) => (
+                  <Card key={index} className="bg-card border-border/50 hover:shadow-soft transition-all duration-300">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                          <span className="text-primary font-semibold">{index + 1}</span>
+                        </div>
+                        <h3 className="text-lg font-medium text-foreground">
+                          {role}
+                        </h3>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 

@@ -8,77 +8,77 @@ const Programs = () => {
   const programs = [
     {
       id: 1,
-      title: "Emergency Medical Assistance",
-      description: "Identifying and supporting vulnerable individuals in medical distress, providing critical transportation and care coordination.",
-      icon: "🚑",
+      title: "Mental Health & Psychosocial Support",
+      description: "Enhancing mental health and providing psychosocial support to individuals in need, helping them cope with challenges and improve overall well-being.",
+      icon: "🧠",
       details: [
-        "Emergency medical transportation to regional hospitals",
-        "Critical care coordination for urgent cases",
-        "Support for families during medical emergencies",
-        "Referral network with healthcare institutions"
+        "Individual and group counseling services",
+        "Mental health awareness programs",
+        "Trauma-informed care approaches",
+        "Psychosocial support for vulnerable populations"
       ],
-      impact: "Lives Saved",
-      example: "Transporting Little Bibi to Mbingo Baptist Hospital for urgent care",
+      impact: "Mental Health Improved",
+      example: "Providing psychosocial support to children affected by violence",
       status: "Active"
     },
     {
       id: 2,
-      title: "Child Welfare & Protection",
-      description: "Focused programs for malnourished, abandoned, or at-risk children in collaboration with health institutions.",
-      icon: "👶",
+      title: "Child Protection & Safeguarding",
+      description: "Implementing comprehensive measures to protect children from harm and ensuring their safety, particularly from gender-based violence.",
+      icon: "🛡️",
       details: [
-        "Nutritional support for malnourished children",
-        "Healthcare access for vulnerable children",
-        "Protection services for at-risk minors",
-        "Collaboration with pediatric care facilities"
+        "Child protection services and advocacy",
+        "Gender-based violence prevention programs",
+        "Safe spaces for vulnerable children",
+        "Rights protection and legal support"
       ],
-      impact: "Children Protected",
-      example: "Comprehensive care programs ensuring child safety and health",
+      impact: "Children Safeguarded",
+      example: "Creating safe environments where children can thrive without fear",
       status: "Active"
     },
     {
       id: 3,
-      title: "Community Livelihood Support",
-      description: "Economic empowerment for families, including women-led households, with focus on basic needs and vocational support.",
-      icon: "💼",
+      title: "Disability Inclusion",
+      description: "Actively promoting the inclusion of individuals with disabilities in educational and community settings, advocating for their rights and capabilities.",
+      icon: "♿",
       details: [
-        "Vocational training programs",
-        "Micro-enterprise development",
-        "Basic needs provision for families",
-        "Women's economic empowerment initiatives"
+        "Inclusive education programs",
+        "Disability rights advocacy",
+        "Community sensitization on disability",
+        "Accessibility improvements in communities"
       ],
-      impact: "Families Empowered",
-      example: "Supporting women-led households with income-generating activities",
+      impact: "Inclusion Achieved",
+      example: "Including children with disabilities in mainstream education and community activities",
       status: "Active"
     },
     {
       id: 4,
-      title: "Health Access Facilitation",
-      description: "Referral and transport logistics to regional hospitals, advocating for better rural healthcare coverage.",
-      icon: "🏥",
+      title: "Water, Sanitation & Hygiene (WASH)",
+      description: "Ensuring access to clean water and proper sanitation facilities, recognizing their importance for overall health and well-being.",
+      icon: "🌊",
       details: [
-        "Healthcare referral systems",
-        "Medical transport coordination",
-        "Rural healthcare advocacy",
-        "Health education programs"
+        "Clean water access initiatives",
+        "Sanitation facility development",
+        "Hygiene education programs",
+        "Community health promotion"
       ],
-      impact: "Healthcare Access",
-      example: "Connecting rural patients with urban medical facilities",
+      impact: "Health Improved",
+      example: "Providing clean water and sanitation facilities to underserved communities",
       status: "Active"
     },
     {
       id: 5,
-      title: "Empathy & Awareness Campaigns",
-      description: "Social media and offline campaigns to promote empathy and civic engagement, educating about rural conditions.",
+      title: "Community Engagement & Education",
+      description: "Raising awareness about mental health, child protection, and disability inclusion through community education and engagement programs.",
       icon: "📢",
       details: [
         "Community awareness campaigns",
-        "Social media engagement",
-        "Educational outreach programs",
-        "Civic engagement initiatives"
+        "Educational workshops and seminars",
+        "Advocacy and policy engagement",
+        "Stakeholder mobilization"
       ],
       impact: "Community Awareness",
-      example: "Educating the public about conditions in rural Cameroon",
+      example: "Educating communities about mental health and child protection",
       status: "Ongoing"
     }
   ];

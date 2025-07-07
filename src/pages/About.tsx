@@ -5,24 +5,24 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const About = () => {
   const coreValues = [
     {
-      title: "Empathy",
-      description: "We believe in understanding and sharing the feelings of those we serve, creating genuine connections that drive meaningful change.",
-      icon: "💝"
+      title: "Mental Health Support",
+      description: "We enhance mental health and provide psychosocial support to individuals in need, helping them cope with challenges and improve their overall well-being.",
+      icon: "🧠"
     },
     {
-      title: "Empowerment",
-      description: "We focus on building capacity and providing tools that enable individuals and communities to become self-sufficient.",
-      icon: "💪"
+      title: "Child Protection",
+      description: "We are committed to safeguarding children from violence, particularly gender-based violence, and ensuring their rights are protected.",
+      icon: "🛡️"
     },
     {
-      title: "Community Support",
-      description: "We work hand-in-hand with local communities, ensuring our programs are culturally relevant and sustainable.",
-      icon: "🤝"
+      title: "Disability Inclusion",
+      description: "We promote the inclusion of children with disabilities in community activities and education, advocating for their rights and capabilities.",
+      icon: "♿"
     },
     {
-      title: "Health Equity",
-      description: "We strive to ensure that quality healthcare is accessible to all, regardless of location or economic status.",
-      icon: "⚕️"
+      title: "Community Empowerment",
+      description: "We work to ensure that vulnerable individuals have access to clean water, sanitation, and essential resources for overall health and well-being.",
+      icon: "🌊"
     }
   ];
 
@@ -41,7 +41,7 @@ const About = () => {
               Keeping Empathy and Livelihood Empowerment Network Association
             </p>
             <p className="text-lg text-primary-foreground/80 leading-relaxed">
-              A humanitarian NGO focused on supporting vulnerable individuals and communities—particularly children, women, and underserved populations in rural areas of Cameroon.
+              A Community Based Organization dedicated to promoting mental health and psychosocial well-being, particularly for vulnerable individuals, including children with disabilities and those affected by various forms of violence.
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed text-center">
-                  To improve lives by combining empathy with practical empowerment strategies such as health interventions, livelihood programs, and community mobilization.
+                  To enhance mental health and provide psychosocial support to individuals in need, while safeguarding children from violence and promoting inclusion of individuals with disabilities in community activities and education.
                 </p>
               </CardContent>
             </Card>
@@ -68,7 +68,7 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed text-center">
-                  A world where empathy drives action, and every individual has access to the resources they need to thrive and build sustainable livelihoods.
+                  An inclusive and empowered society where all individuals, regardless of their background or abilities, have equal opportunities and support in safe, equal, and sustainable communities.
                 </p>
               </CardContent>
             </Card>

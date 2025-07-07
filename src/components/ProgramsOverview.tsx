@@ -4,31 +4,31 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const ProgramsOverview = () => {
   const programs = [
     {
-      title: "Livelihood Empowerment",
-      icon: "💼",
-      description: "Supporting sustainable income generation through skills training, micro-finance, and entrepreneurship development.",
-      highlights: ["Skills Training", "Micro-finance Support", "Business Mentorship"],
+      title: "Mental Health Support",
+      icon: "🧠",
+      description: "Enhancing mental health and providing psychosocial support to individuals in need, particularly vulnerable populations.",
+      highlights: ["Counseling Services", "Psychosocial Support", "Trauma Care"],
       color: "border-primary"
     },
     {
-      title: "Empathy Circles",
-      icon: "💝",
-      description: "Creating safe spaces for emotional healing, conflict resolution, and community building through structured dialogue.",
-      highlights: ["Community Healing", "Conflict Resolution", "Mental Wellness"],
+      title: "Child Protection",
+      icon: "🛡️",
+      description: "Safeguarding children from violence and ensuring their rights are protected through comprehensive protection measures.",
+      highlights: ["Child Safety", "Violence Prevention", "Rights Protection"],
       color: "border-accent"
     },
     {
-      title: "Youth Empowerment",
-      icon: "🌟",
-      description: "Equipping young people with leadership skills, education support, and career guidance for a brighter future.",
-      highlights: ["Leadership Training", "Education Support", "Career Guidance"],
+      title: "Disability Inclusion",
+      icon: "♿",
+      description: "Promoting inclusion of individuals with disabilities in education and community activities, advocating for their capabilities.",
+      highlights: ["Inclusive Education", "Rights Advocacy", "Community Integration"],
       color: "border-secondary"
     },
     {
-      title: "Community Development",
-      icon: "🏘️",
-      description: "Building stronger communities through infrastructure support, capacity building, and collaborative projects.",
-      highlights: ["Infrastructure", "Capacity Building", "Community Projects"],
+      title: "WASH Programs",
+      icon: "🌊",
+      description: "Ensuring access to clean water, sanitation, and hygiene facilities for improved community health and well-being.",
+      highlights: ["Clean Water", "Sanitation", "Health Education"],
       color: "border-maroon"
     }
   ];

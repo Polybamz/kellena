@@ -2,7 +2,13 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
+const imagesList: Array<string> = [
+  '/src/assets/images/gallery/m1.jpg',
+  '/src/assets/images/gallery/m2.jpg',
+  '/src/assets/images/gallery/m3.jpg',
+  '/src/assets/images/gallery/m4.jpg',
+  '/src/assets/images/gallery/m4.jpg',
+]
 const About = () => {
   const coreValues = [
     {
@@ -75,8 +81,8 @@ const About = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className=" min-h-[300px] bg-[url(/src/assets/images/k-logo-2.jpg)]  bg-cover repeat-non ">
+        <div className="  px-4 sm:px-6 lg:px-8 bg-gradient-hero text-primary-foreground w-full min-h-[300px] flex flex-col justify-center items-center">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               About KELLENA
@@ -246,6 +252,17 @@ const About = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section className="w-full">
+        <div className="flex flex-row overflow-scroll gap-2 h-[300px] w-auto">
+          {
+            imagesList.map((image, index) => (
+              <img key={index} src={`${image}`} alt="image" />
+            ))
+          }
+
+        </div>
+
       </section>
 
       <Footer />

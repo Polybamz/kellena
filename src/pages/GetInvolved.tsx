@@ -97,10 +97,10 @@ const GetInvolved = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="min-h-[300px] bg-[url(/src/assets/images/k-logo-2.jpg)]  bg-cover repeat-non">
+        <div className=" px-4 sm:px-6 lg:px-8 bg-gradient-hero text-primary-foreground w-full min-h-[300px] flex flex-col justify-center items-center">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Get Involved
@@ -129,7 +129,7 @@ const GetInvolved = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {involvementOptions.map((option) => (
-              <Card key={option.id} className={`border-border/50 hover:shadow-soft transition-all duration-300 ${option.highlight ? 'bg-gradient-warm/5 border-accent/30' : 'bg-gradient-card'}`}>
+              <Card key={option.id} className={`border-border/50 hover:shadow-soft transition-all duration-300 hover:scale-312 ${option.highlight ? 'bg-gradient-warm/5 border-accent/30' : 'bg-gradient-card'}`}>
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="text-4xl">{option.icon}</div>
@@ -146,7 +146,7 @@ const GetInvolved = () => {
                     {option.description}
                   </p>
                 </CardHeader>
-                
+
                 <CardContent>
                   <div className="mb-6">
                     <h4 className="font-semibold text-foreground mb-3">Options Available:</h4>
@@ -159,7 +159,7 @@ const GetInvolved = () => {
                       ))}
                     </ul>
                   </div>
-                  
+
                   {option.paymentMethods && (
                     <div className="mb-6">
                       <h5 className="font-medium text-foreground mb-2">Payment Methods:</h5>
@@ -172,7 +172,7 @@ const GetInvolved = () => {
                       </div>
                     </div>
                   )}
-                  
+
                   {option.requirements && (
                     <div className="mb-6">
                       <h5 className="font-medium text-foreground mb-2">Requirements:</h5>
@@ -185,7 +185,7 @@ const GetInvolved = () => {
                       </div>
                     </div>
                   )}
-                  
+
                   {option.partners && (
                     <div className="mb-6">
                       <h5 className="font-medium text-foreground mb-2">Current Partners:</h5>
@@ -198,7 +198,7 @@ const GetInvolved = () => {
                       </div>
                     </div>
                   )}
-                  
+
                   {option.platforms && (
                     <div className="mb-6">
                       <h5 className="font-medium text-foreground mb-2">Platforms:</h5>
@@ -211,8 +211,8 @@ const GetInvolved = () => {
                       </div>
                     </div>
                   )}
-                  
-                  <Button 
+
+                  <Button
                     className={option.highlight ? "bg-gradient-warm text-accent-foreground hover:opacity-90 w-full" : "w-full"}
                     variant={option.highlight ? "default" : "outline"}
                   >
@@ -253,7 +253,7 @@ const GetInvolved = () => {
                     <p><strong>Availability:</strong> {event.spots}</p>
                   </div>
                 </CardHeader>
-                
+
                 <CardContent>
                   <Button size="sm" variant="outline" className="w-full">
                     Register Interest
@@ -295,14 +295,14 @@ const GetInvolved = () => {
                       <Input type="email" placeholder="your.email@example.com" />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Phone Number
                     </label>
                     <Input placeholder="+237 XXX XXX XXX" />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       How would you like to get involved?
@@ -316,17 +316,17 @@ const GetInvolved = () => {
                       <option>Other</option>
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Message
                     </label>
-                    <Textarea 
+                    <Textarea
                       placeholder="Tell us more about how you'd like to contribute or any questions you have..."
                       className="min-h-[120px]"
                     />
                   </div>
-                  
+
                   <Button className="w-full bg-gradient-warm text-accent-foreground hover:opacity-90">
                     Send Message
                   </Button>

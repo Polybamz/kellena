@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
@@ -22,9 +23,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+                      <img src="/src/assets/images/kelle.jpg" alt="logo"  className="h-[60px] w-[6-px]" />
+
+            {/* <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">K</span>
-            </div>
+            </div> */}
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-primary">KELLENA</h1>
               <p className="text-xs text-muted-foreground leading-none">

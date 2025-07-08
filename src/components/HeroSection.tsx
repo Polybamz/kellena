@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+const imagesLanding = [
+  'src/assets/images/landing/meeting1.jpg',
+  'src/assets/images/landing/meeting2.jpg',
+  'src/assets/images/landing/meeting3.jpg'
+   
+ ]
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -36,7 +42,7 @@ const HeroSection = () => {
   const currentContent = heroSlides[currentSlide];
 
   return (
-    <section className="relative min-h-[85vh] bg-gradient-hero text-primary-foreground overflow-hidden">
+    <section className={`relative min-h-[85vh] bg-gradient-hero text-primary-foreground overflow-hidden bg-[url(/src/assets/images/landing/landing.jpg)]  bg-cover repeat-non bg-black/50`}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 border-2 border-primary-foreground rounded-full"></div>
@@ -44,7 +50,7 @@ const HeroSection = () => {
         <div className="absolute bottom-20 left-1/4 w-40 h-40 border border-primary-foreground rounded-full"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+      <div className=" px-4 sm:px-6 lg:px-8 min-h-[85vh] w-full flex items-center bg-gradient-to-r from-[#A0191F]/60 to-[#09246D]/60">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
           {/* Hero Content */}
           <div className="space-y-8 animate-fade-in">

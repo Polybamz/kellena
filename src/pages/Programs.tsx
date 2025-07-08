@@ -1,10 +1,56 @@
+import React from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import MediaDisplay from "@/components/mediaDispalay";
+const passedEvents = [
+  {
+    id: 1,
+    title: "Training Workshop",
+    describtion: 'The KELLEN Association recently organized a comprehensive workshop in Tabenken village, Donga Mantung Division of the North West Region of Cameroon. The purpose of this workshop was to educate and train Community Health Volunteer Workers on the Integrated Approach in identifying Musculoskeletal Deformities in children within their community. These cases would then be referred to the Jang Health Center for proper need assessment and follow-up for posible treatment and or rehabilitation. It is important to note that the wish for KELLEN Association is to conduct this training on identification and support initiative in all the subdivisions of the Donga Mantung Division, underscoring its commitment to reaching and assisting as many children as possible.',
+    images: [
+      '/src/assets/images/worshop-images1/IMG-20250707-WA0149.jpg',
+      '/src/assets/images/worshop-images1/IMG-20250707-WA0150.jpg',
+      '/src/assets/images/worshop-images1/IMG-20250707-WA0151.jpg',
+      '/src/assets/images/worshop-images1/IMG-20250707-WA0152.jpg',     
+    ]
+  },
+  {
+    id:2,
+    title: "Community Workshop",
+    describtion: 'In a collaborative effort, KELLEN Association, with support from Tabenken Cultural and Development Association (TACUDA) and some stakeholders, organized a transformative workshop in Tabenken village, Donga Mantung Division of the North West Region of Cameroon.Theme: "Building Safe and Inclusive Community: Empowering Youth against Gender-based Violence and Fostering Mental Health Well-being," reflected the urgent need to address pressing issues affecting the community\'s youth such as teenage pregnancy and school dropouts.The crucial topics discussed during the workshop were:',
+    images: [
+      '/src/assets/images/wh2/IMG-20250707-WA0151.jpg',
+      '/src/assets/images/wh2/IMG-20250707-WA0153.jpg',
+      '/src/assets/images/wh2/IMG-20250707-WA0154.jpg',
+      '/src/assets/images/wh2/IMG-20250707-WA0155.jpg',
+      '/src/assets/images/wh2/IMG-20250707-WA0156.jpg',
+      '/src/assets/images/wh2/IMG-20250707-WA0157.jpg',
+      '/src/assets/images/wh2/IMG-20250707-WA0158.jpg',
+      '/src/assets/images/wh2/IMG-20250707-WA0159.jpg',
+      '/src/assets/images/wh2/IMG-20250707-WA0160.jpg',
+      '/src/assets/images/wh2/IMG-20250707-WA0161.jpg',
+      '/src/assets/images/wh2/IMG-20250707-WA0162.jpg',
+   ]
+  }, 
+  {
+    id:3,
+    title: "Community Health Workshop",
+    describtion: 'Yesterday December 22, 2023, KELLENA, in collaboration with the Jang Health Center in Tabenken village, Donga Mantung Division of Nkambe Central, organized a health talk aimed at raising awareness on child protection and addressing gender-based violence (GBV). The initiative targeted over 100 nursing mothers during their pre and postnatal visits at the clinic, as well as community members through sensitization efforts in all six quarters of Tabenken.Child Protection Awareness:The health talk emphasized the universal rights of children, including the right to a name, good health, education, and a birth certificate. Parents were reminded that failing to respect these rights constitutes an abuse of children\'s rights. The session aimed to empower parents with the knowledge and understanding of their responsibilities in ensuring the well-being of their children.Gender-Based Violence (GBV) Awareness:Participants were enlightened about the prevalence of GBV, emphasizing that it is not exclusive to one gender. Both women and men were acknowledged as potential victims or perpetrators of GBV, encompassing emotional and psychological abuse. Attendees were encouraged to report cases of GBV and seek protection from KELLENA\'s focal point in Tabenken for appropriate intervention.Acknowledgments:Much appreciation was expressed to the Jang Health Center manager and her team for their outstanding efforts in facilitating a successful end-of-year health talk with KELLENA Association in Tabenken village. The collaborative endeavor contributed significantly to the overall well-being of the community members.',
+    images: [
+      '/src/assets/images/wh3/IMG-20250707-WA0163.jpg',
+      '/src/assets/images/wh3/IMG-20250707-WA0164.jpg',
+      '/src/assets/images/wh3/IMG-20250707-WA0165.jpg',
+      '/src/assets/images/wh3/IMG-20250707-WA0138.jpg',
+   
+   ]
+  }
+]
 
 const Programs = () => {
+   const [events, setEvents] = React.useState('passed');
   const programs = [
     {
       id: 1,
@@ -88,8 +134,8 @@ const Programs = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="min-h-[300px] bg-[url(/src/assets/images/k-logo-2.jpg)]  bg-cover repeat-non">
+        <div className=" px-4 sm:px-6 lg:px-8 bg-gradient-hero text-primary-foreground w-full min-h-[300px] flex flex-col justify-center items-center">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Our Programs
@@ -160,6 +206,50 @@ const Programs = () => {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+      {/* Passed Events */}
+      <section className="my-6 bg-background flex flex-col items-center justify-start">
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-10">{events === 'passed'? 'Past Events' : 'Up Coming Events'}</h1>
+        <div className="w-[95%] mb-4 flex justify-start gap-2 items-start">
+          <Button onClick={() => setEvents('passed')} className={` ${events === 'passed'? 'text-accent-foreground bg-gradient-warm' : ' text-yellow-500 bg-white border-2 border-yellow-500'} hover:opacity-90`}>View Past Events</Button>
+          <Button onClick={() => setEvents('upcoming')} className={` ${events === 'upcoming'? 'text-accent-foreground bg-gradient-warm' : ' text-yellow-500 bg-white border-2 border-yellow-500'} hover:opacity-90`}>Up Coming Events</Button>
+        </div>
+        <div className=" grid grid-cols-1 md:grid-cols-2 min-lg:grid-cols-3 gap-4 mx-auto px-4 sm:px-6 lg:px-8 gap-2">
+          {
+            events === 'passed'? passedEvents.map((event) => (
+              <Card key={event.id} className="bg-gradient-card border-border/50 hover:shadow-soft transition-all duration-300 p-4 m-2 w-full md:w-full  ">
+                <CardHeader className="text-2xl font-bold text-foreground">{event.title}</CardHeader>
+                
+
+                <div className="max-h-[400px] overflow-hidden">
+                  <MediaDisplay
+                  mediaUrls={event.images}
+                />
+                </div>
+                <CardContent>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{event.describtion}</p>
+                </CardContent>
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <img src={event.images[0]} alt="event-image" className="w-10 h-10 rounded-full" />
+                    <div className="text-sm text-muted-foreground">
+                      {event.images.length} Photos
+                    </div>
+                  </div>
+                  <Button size="sm" variant="outline">
+                    View Event
+                  </Button>
+                </div>
+                <p className="italic self-left-auto text-sm text-muted-foreground">@kellena Admin</p>
+                </Card>
+            )) : (
+                <div className="h-[200px] w-[95%] flex flex-col items-center justify-center border-2 border-doted bg-background hover:shadow-soft transition-all duration-300 p-4 m-2">
+                  <p>No upcoming events</p>
+                </div>
+            )
+          }
+      
         </div>
       </section>
 

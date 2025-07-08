@@ -66,7 +66,7 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Call to Action Buttons */}
+            {/* Hero CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 

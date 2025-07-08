@@ -208,48 +208,113 @@ const Programs = () => {
           </div>
         </div>
       </section>
-      {/* Passed Events */}
-      <section className="my-6 bg-background flex flex-col items-center justify-start">
-        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-10">{events === 'passed'? 'Past Events' : 'Up Coming Events'}</h1>
-        <div className="w-[95%] mb-4 flex justify-start gap-2 items-start">
-          <Button onClick={() => setEvents('passed')} className={` ${events === 'passed'? 'text-accent-foreground bg-gradient-warm' : ' text-yellow-500 bg-white border-2 border-yellow-500'} hover:opacity-90`}>View Past Events</Button>
-          <Button onClick={() => setEvents('upcoming')} className={` ${events === 'upcoming'? 'text-accent-foreground bg-gradient-warm' : ' text-yellow-500 bg-white border-2 border-yellow-500'} hover:opacity-90`}>Up Coming Events</Button>
-        </div>
-        <div className=" grid grid-cols-1 md:grid-cols-2 min-lg:grid-cols-3 gap-4 mx-auto px-4 sm:px-6 lg:px-8 gap-2">
-          {
-            events === 'passed'? passedEvents.map((event) => (
-              <Card key={event.id} className="bg-gradient-card border-border/50 hover:shadow-soft transition-all duration-300 p-4 m-2 w-full md:w-full  ">
-                <CardHeader className="text-2xl font-bold text-foreground">{event.title}</CardHeader>
-                
+      {/* Events Section */}
+      <section className="py-16 bg-muted/20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              {events === 'passed' ? 'Past Events' : 'Upcoming Events'}
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Discover our impactful workshops and community engagements
+            </p>
+            
+            {/* Toggle Buttons */}
+            <div className="inline-flex rounded-lg bg-muted p-1 mb-8">
+              <button
+                onClick={() => setEvents('passed')}
+                className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                  events === 'passed'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Past Events
+              </button>
+              <button
+                onClick={() => setEvents('upcoming')}
+                className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                  events === 'upcoming'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Upcoming Events
+              </button>
+            </div>
+          </div>
 
-                <div className="max-h-[400px] overflow-hidden">
-                  <MediaDisplay
-                  mediaUrls={event.images}
-                />
-                </div>
-                <CardContent>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">{event.describtion}</p>
-                </CardContent>
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <img src={event.images[0]} alt="event-image" className="w-10 h-10 rounded-full" />
-                    <div className="text-sm text-muted-foreground">
-                      {event.images.length} Photos
+          {/* Events Grid */}
+          {events === 'passed' ? (
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+              {passedEvents.map((event) => (
+                <Card key={event.id} className="group bg-card border-border/50 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  {/* Event Header */}
+                  <CardHeader className="pb-4">
+                    <div className="flex items-start justify-between">
+                      <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {event.title}
+                      </CardTitle>
+                      <Badge variant="secondary" className="bg-accent/10 text-accent">
+                        Completed
+                      </Badge>
+                    </div>
+                  </CardHeader>
+
+                  {/* Event Media */}
+                  <div className="px-6 mb-4">
+                    <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                      <MediaDisplay mediaUrls={event.images} />
                     </div>
                   </div>
-                  <Button size="sm" variant="outline">
-                    View Event
-                  </Button>
-                </div>
-                <p className="italic self-left-auto text-sm text-muted-foreground">@kellena Admin</p>
+
+                  {/* Event Content */}
+                  <CardContent className="pt-0">
+                    <p className="text-muted-foreground leading-relaxed line-clamp-4 mb-6">
+                      {event.describtion}
+                    </p>
+                    
+                    {/* Event Stats */}
+                    <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                      <div className="flex items-center gap-3">
+                        <img 
+                          src={event.images[0]} 
+                          alt="event thumbnail" 
+                          className="w-8 h-8 rounded-full object-cover border-2 border-border" 
+                        />
+                        <div className="text-sm">
+                          <p className="font-medium text-foreground">{event.images.length} Photos</p>
+                          <p className="text-muted-foreground">by KELLENA Admin</p>
+                        </div>
+                      </div>
+                      <Button size="sm" variant="ghost" className="text-primary hover:bg-primary/10">
+                        View Details
+                      </Button>
+                    </div>
+                  </CardContent>
                 </Card>
-            )) : (
-                <div className="h-[200px] w-[95%] flex flex-col items-center justify-center border-2 border-doted bg-background hover:shadow-soft transition-all duration-300 p-4 m-2">
-                  <p>No upcoming events</p>
+              ))}
+            </div>
+          ) : (
+            /* Upcoming Events Empty State */
+            <div className="max-w-md mx-auto text-center">
+              <div className="bg-card border-2 border-dashed border-border/50 rounded-lg p-12 hover:border-primary/30 transition-colors">
+                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">📅</span>
                 </div>
-            )
-          }
-      
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  No Upcoming Events
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Stay tuned for exciting workshops and community programs coming soon!
+                </p>
+                <Button variant="outline" size="sm">
+                  Get Notified
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

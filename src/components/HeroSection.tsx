@@ -83,7 +83,7 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Impact Stats */}
+            {/* Impact Stats  hhhhhh*/}
             <div className="pt-8">
               <Card className="p-6 bg-card/10 backdrop-blur border-primary-foreground/20">
                 <div className="text-center">

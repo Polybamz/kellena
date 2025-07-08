@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -288,8 +289,8 @@ const Programs = () => {
                           <p className="text-muted-foreground">by KELLENA Admin</p>
                         </div>
                       </div>
-                      <Button size="sm" variant="ghost" className="text-primary hover:bg-primary/10">
-                        View Details
+                      <Button size="sm" variant="ghost" className="text-primary hover:bg-primary/10" asChild>
+                        <Link to={`/events/${event.id}`}>View Details</Link>
                       </Button>
                     </div>
                   </CardContent>

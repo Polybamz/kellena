@@ -42,7 +42,7 @@ const HeroSection = () => {
   const currentContent = heroSlides[currentSlide];
 
   return (
-    <section className={`relative min-h-[85vh] bg-gradient-hero text-primary-foreground overflow-hidden bg-[url(/src/assets/images/landing/landing.jpg)]  bg-cover repeat-non bg-black/50`}>
+    <section className={`relative min-h-[85vh] text-primary-foreground overflow-hidden bg-[url(/src/assets/images/landing/landing.jpg)]  bg-cover repeat-non bg-black/50`}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 border-2 border-primary-foreground rounded-full"></div>
@@ -145,6 +145,7 @@ const HeroSection = () => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
             className={`w-3 h-3 rounded-full transition-all ${
               index === currentSlide 
                 ? 'bg-accent scale-125' 

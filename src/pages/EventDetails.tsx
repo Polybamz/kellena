@@ -9,6 +9,7 @@ import { ArrowLeft, Calendar, MapPin, Users } from "lucide-react";
 import MediaDisplay from "@/components/mediaDispalay";
 
 const passedEvents = [
+  // here we go
   {
     id: 1,
     title: "Training Workshop",

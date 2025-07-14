@@ -209,7 +209,7 @@ const About = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Primarily focused in <strong>Donga-Mantung Division</strong>, Cameroon, where we work directly with rural communities to identify and address their most pressing needs.
+                    Primarily focused in <strong>Northwest, Southwest, West and Litoral Region</strong> of Cameroon, where we work directly with rural communities to identify and address their most pressing needs.
                   </p>
                 </CardContent>
               </Card>

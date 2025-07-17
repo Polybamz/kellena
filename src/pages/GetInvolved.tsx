@@ -266,7 +266,7 @@ const GetInvolved = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-background" >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
@@ -278,7 +278,7 @@ const GetInvolved = () => {
               </p>
             </div>
 
-            <Card className="bg-gradient-card border-border/50">
+            <Card className="bg-gradient-card border-border/50" id="contact">
               <CardContent className="p-8">
                 <form className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">

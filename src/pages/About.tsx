@@ -2,12 +2,14 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ImageGallery } from "@/components/imageGallery";
 const imagesList: Array<string> = [
   '/src/assets/images/gallery/m1.jpg',
   '/src/assets/images/gallery/m2.jpg',
   '/src/assets/images/gallery/m3.jpg',
   '/src/assets/images/gallery/m4.jpg',
   '/src/assets/images/gallery/m4.jpg',
+  
 ]
 const About = () => {
   const coreValues = [
@@ -233,12 +235,15 @@ const About = () => {
       </section>
 
       {/* History */}
+            <ImageGallery images={imagesList} />
+
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
               Our Story
             </h2>
+            
             <div className="bg-card p-8 rounded-2xl border border-border/50">
               <p className="text-muted-foreground leading-relaxed mb-6">
                 KELLENA was founded on the belief that empathy must be paired with action to create real change. Born from witnessing the gaps in healthcare and support systems in rural Cameroon, our organization began as a grassroots movement to bridge these critical needs.
@@ -252,17 +257,6 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
-      <section className="w-full">
-        <div className="flex flex-row overflow-scroll gap-2 h-[300px] w-auto">
-          {
-            imagesList.map((image, index) => (
-              <img key={index} src={`${image}`} alt="image" />
-            ))
-          }
-
-        </div>
-
       </section>
 
       <Footer />

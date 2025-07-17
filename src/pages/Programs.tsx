@@ -51,6 +51,7 @@ const passedEvents = [
 ]
 
 const Programs = () => {
+  const newEvent = JSON.parse(localStorage.getItem('events'))
    const [events, setEvents] = React.useState('passed');
   const programs = [
     {
@@ -129,6 +130,8 @@ const Programs = () => {
       status: "Ongoing"
     }
   ];
+
+  console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk',newEvent)
 
   return (
     <div className="min-h-screen bg-background">
@@ -298,23 +301,77 @@ const Programs = () => {
               ))}
             </div>
           ) : (
-            /* Upcoming Events Empty State */
-            <div className="max-w-md mx-auto text-center">
-              <div className="bg-card border-2 border-dashed border-border/50 rounded-lg p-12 hover:border-primary/30 transition-colors">
-                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">📅</span>
+            // Upcoming Events Empty State
+            <>
+              {newEvent && newEvent.length === 0 && (
+                <div className="max-w-md mx-auto text-center">
+                  <div className="bg-card border-2 border-dashed border-border/50 rounded-lg p-12 hover:border-primary/30 transition-colors">
+                    <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-2xl">📅</span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">
+                      No Upcoming Events
+                    </h3>
+                    <p className="text-muted-foreground mb-6">
+                      Stay tuned for exciting workshops and community programs coming soon!
+                    </p>
+                    <Button variant="outline" size="sm">
+                      Get Notified
+                    </Button>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  No Upcoming Events
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Stay tuned for exciting workshops and community programs coming soon!
-                </p>
-                <Button variant="outline" size="sm">
-                  Get Notified
-                </Button>
-              </div>
-            </div>
+              )}
+              {newEvent && newEvent.length > 0 && (
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                  {/* Render upcoming events here */}
+                  {/* Example: */}
+                  {newEvent.map((event: any, idx: number) => (
+                    <Card key={event.id || idx} className="group bg-card border-border/50 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                      <CardHeader className="pb-4">
+                        <div className="flex items-start justify-between">
+                         
+                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                            {event.name}
+                          </CardTitle>
+                          <Badge variant="secondary" className="bg-accent/10 text-accent">
+                            {event.status}
+                          </Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        {/* Event Media */}
+                  <div className="px-6 mb-4">
+                    <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                      <MediaDisplay mediaUrls={event.gallery} />
+                    </div>
+                  </div>
+                         <p className="text-muted-foreground leading-relaxed line-clamp-4 mb-6">
+                      {event.description}
+                        </p>
+                         {/* Event Stats */}
+                    <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                      <div className="flex items-center gap-3">
+                        <img 
+                          src={event.gallery[0]} 
+                          alt="event thumbnail" 
+                          className="w-8 h-8 rounded-full object-cover border-2 border-border" 
+                        />
+                        <div className="text-sm">
+                          <p className="font-medium text-foreground">{event.gallery.length} Photos</p>
+                          <p className="text-muted-foreground">by KELLENA Admin</p>
+                        </div>
+                      </div>
+                      <Button size="sm" variant="ghost" className="text-primary hover:bg-primary/10" asChild>
+                        <Link to={`/events/${event.id}`}>View Details</Link>
+                      </Button>
+                    </div>
+                      </CardContent>
+                      {/* Add more event details as needed */}
+                    </Card>
+                  ))}
+                </div>
+              )}
+            </>
           )}
         </div>
       </section>

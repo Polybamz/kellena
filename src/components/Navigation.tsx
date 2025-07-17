@@ -14,7 +14,7 @@ const Navigation = () => {
     { label: "Impact", href: "/impact" },
     { label: "News", href: "/news" },
     { label: "Get Involved", href: "/get-involved" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "/get-involved#contact" },
   ];
 
   return (
@@ -23,7 +23,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-                      <img src="/src/assets/images/kelle.jpg" alt="logo"  className="h-[60px] w-[6-px]" />
+            <img src="/src/assets/images/kelle.jpg" alt="logo" className="h-[60px] w-[6-px]" />
 
             {/* <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">K</span>
@@ -54,11 +54,13 @@ const Navigation = () => {
             <Button variant="default" className="bg-gradient-warm text-accent-foreground hover:opacity-90 transition-opacity">
               Donate Now
             </Button>
-            
+
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden flex flex-col items-center justify-center w-6 h-6 space-y-1"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              type="button"
             >
               <span className={cn("w-5 h-0.5 bg-foreground transition-all", isMenuOpen && "rotate-45 translate-y-1.5")} />
               <span className={cn("w-5 h-0.5 bg-foreground transition-all", isMenuOpen && "opacity-0")} />

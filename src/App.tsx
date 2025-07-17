@@ -11,6 +11,7 @@ import News from "./pages/News";
 import GetInvolved from "./pages/GetInvolved";
 import EventDetails from "./pages/EventDetails";
 import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/news" element={<News />} />
           <Route path="/get-involved" element={<GetInvolved />} />
           <Route path="/events/:id" element={<EventDetails />} />
+          <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,7 +1,22 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import useNewsLetterRegistration from "@/hooks/use-news-letter-registration";
+// import { useToast } from "@/hooks/use-toast";
 
 const CallToAction = () => {
+
+  const [email, setEmail] = useState("");
+  const { isRegistered, error, loading, register } = useNewsLetterRegistration();
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!email) { 
+     console.log('email is empty')
+    } else {
+      await register(email);
+    }
+  };
   const actionCards = [
     {
       title: "Donate",
@@ -76,16 +91,24 @@ const CallToAction = () => {
               <p className="text-muted-foreground mb-6">
                 Get updates on our programs, success stories, and upcoming events.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleSubmit}>
                 <input 
                   type="email" 
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                   placeholder="Enter your email address"
                   className="flex-1 px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 />
-                <Button className="bg-primary text-primary-foreground hover:bg-primary-light px-8">
-                  Subscribe
+                <Button type="submit" className="bg-primary text-primary-foreground hover:bg-primary-light px-8" disabled={loading || isRegistered}>
+                 {loading ? 'Loading...' : isRegistered ? 'Subscribed' : 'Subscribe'}
                 </Button>
-              </div>
+              </form>
+              {
+                error && (
+                        <div className="mt-4 p-4 text-center bg-red-200/50 border border-red-800 rounded-lg text-red-500">{error}</div>
+                )
+              }
+
             </CardContent>
           </Card>
         </div>

@@ -1,5 +1,6 @@
 // firebase.ts
 
+import { create } from "domain";
 import { initializeApp } from "firebase/app";
 
 import {
@@ -179,12 +180,12 @@ export const registerForNewsletter = async (email: string) => {
     if (docSnap.exists()) {
       return true;
     } else {
-      await setDoc(docRef, { email });
+      await setDoc(docRef, { email, createdAt: new Date().toISOString() });
       return {sucess: true};
     }
   } catch (error) {
     console.error("Failed to register for newsletter:", error.message);
-    return {success:false};
+    throw new Error("Failed to register for newsletter",);
   }
 };
 /// register for event

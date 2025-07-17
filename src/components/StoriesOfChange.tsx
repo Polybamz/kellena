@@ -2,6 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const StoriesOfChange = () => {
+    const story = JSON.parse(localStorage.getItem('impactStories'))
+
   const stories = [
     {
       id: 1,
@@ -31,6 +33,8 @@ const StoriesOfChange = () => {
       status: "Leading Change"
     }
   ];
+
+  console.log('storiessssssssssssssssssssssssssssssssssssssssssssss',story)
 
   return (
     <section className="py-16 bg-background">

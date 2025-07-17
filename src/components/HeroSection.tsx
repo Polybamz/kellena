@@ -3,13 +3,17 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import landing from "@/assets/images/landing/landing.jpg";
+import meeting1 from "@/assets/images/landing/meeting1.jpg";
+import meeting2 from "@/assets/images/landing/meeting2.jpg";
+import meeting3 from "@/assets/images/landing/meeting3.jpg";
 
 // Make sure your image paths are correct and accessible
 const imagesLanding = [
-  '/src/assets/images/landing/landing.jpg',
-  '/src/assets/images/landing/meeting1.jpg',
-  '/src/assets/images/landing/meeting2.jpg',
-  '/src/assets/images/landing/meeting3.jpg'
+  landing,
+  meeting1,
+  meeting2,
+  meeting3
 ];
 
 const HeroSection = () => {

@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import logo from "@/assets/images/kelle.jpg";
+import { useLocation } from "react-router-dom";
+
 
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -15,7 +18,7 @@ const Navigation = () => {
     { label: "Impact", href: "/impact" },
     { label: "News", href: "/news" },
     { label: "Get Involved", href: "/get-involved" },
-    { label: "Contact", href: "/get-involved#contact" },
+    { label: "Contact", href: "/get-involved?#contact" },
   ];
 
   return (
@@ -24,7 +27,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img src={logo} alt="logo" className="h-[60px] w-[6-px]" />
+            <img src={logo} alt="logo" className="h-[60px] w-[60px]" />
 
             {/* <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">K</span>
@@ -43,7 +46,7 @@ const Navigation = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                className={cn("text-foreground hover:text-primary transition-colors duration-200 font-medium", location.pathname === item.href && "text-primary")}
               >
                 {item.label}
               </Link>
@@ -52,9 +55,9 @@ const Navigation = () => {
 
           {/* Donate Button & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <Button variant="default" className="bg-gradient-warm text-accent-foreground hover:opacity-90 transition-opacity">
+            <Link to="/donate" className="bg-gradient-warm rounded-md py-2 px-4 text-accent-foreground hover:opacity-90 transition-opacity">
               Donate Now
-            </Button>
+            </Link>
 
             {/* Mobile menu button */}
             <button

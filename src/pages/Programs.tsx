@@ -387,9 +387,10 @@ const Programs = () => {
               Every program depends on the generous support of people like you. Your contribution directly impacts lives.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-warm text-accent-foreground hover:opacity-90">
-                Donate to Programs
-              </Button>
+              
+                <Link to="/donate" className="bg-gradient-warm text-accent-foreground flex items-center justify-center px-8 py-3 rounded-lg text-sm font-medium transition-all duration-200 hover:opacity-90">
+              Donate to Programs
+            </Link>
               <Button size="lg" variant="outline">
                 Become a Volunteer
               </Button>

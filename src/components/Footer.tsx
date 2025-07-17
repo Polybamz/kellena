@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const footerSections = [
@@ -126,9 +126,10 @@ const Footer = () => {
             </div>
 
             {/* Quick Donate */}
-            <Button className="bg-gradient-warm text-accent-foreground hover:opacity-90 px-6">
-              Quick Donate
-            </Button>
+            
+            <Link to="/donate" className="bg-gradient-warm rounded-md py-2 px-4 text-accent-foreground hover:opacity-90 transition-opacity">
+                           Quick Donate
+                        </Link>
           </div>
         </div>
 

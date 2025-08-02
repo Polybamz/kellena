@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 
+import { Facebook } from "lucide-react";
+
 const Footer = () => {
   const footerSections = [
     {
       title: "About KELLENA",
       links: [
-        { label: "Our Mission", href: "/about#mission" },
-        { label: "Our Team", href: "/about#team" },
-        { label: "Our History", href: "/about#history" },
-        { label: "Annual Reports", href: "/impact#reports" }
+        { label: "Our Mission", href: "/about" },
+        { label: "Our Team", href: "/about" },
+        { label: "Our History", href: "/about" },
+        { label: "Annual Reports", href: "/impact" }
       ]
     },
     {
@@ -23,10 +25,10 @@ const Footer = () => {
     {
       title: "Get Involved",
       links: [
-        { label: "Volunteer", href: "/get-involved#volunteer" },
+        { label: "Volunteer", href: "/get-involved" },
         { label: "Donate", href: "/donate" },
-        { label: "Partner With Us", href: "/get-involved#partner" },
-        { label: "Events", href: "/get-involved#events" }
+        { label: "Partner With Us", href: "/get-involved" },
+        { label: "Events", href: "/get-involved" }
       ]
     },
     {
@@ -41,11 +43,11 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: "Facebook", icon: "📘", href: "#" },
-    { name: "Instagram", icon: "📷", href: "#" },
-    { name: "X (Twitter)", icon: "🐦", href: "#" },
-    { name: "WhatsApp", icon: "💬", href: "#" },
-    { name: "YouTube", icon: "📺", href: "#" }
+    { name: "Facebook", icon: <Facebook/>, href: "https://www.facebook.com/share/19Ght3mkPb" },
+    // { name: "Instagram", icon: "📷", href: "#" },
+    // { name: "X (Twitter)", icon: "🐦", href: "#" },
+   // { name: "WhatsApp", icon: "💬", href: "#" },
+   // { name: "YouTube", icon: "📺", href: "#" }
   ];
 
   return (
@@ -73,10 +75,10 @@ const Footer = () => {
               </p>
               <div className="space-y-2">
                 <p className="text-sm">
-                  <strong>Email:</strong> info@kellena.org
+                  <strong>Email:</strong> kellen.association@gmail.com
                 </p>
                 <p className="text-sm">
-                  <strong>Phone:</strong> +237 XXX XXX XXX
+                  <strong>Phone:</strong> +237 6 82 90 21 11
                 </p>
                 <p className="text-sm">
                   <strong>Address:</strong> Yaoundé, Cameroon

@@ -12,7 +12,7 @@
 // import EventDetails from "./pages/EventDetails";
 // import NotFound from "./pages/NotFound";
 // import Contact from "./pages/Contact";
-// import useRouteTransition from "./hooks/useRouteTranstion";
+ import useRouteTransition from "./hooks/useRouteTranstion";
 
 // const queryClient = new QueryClient();
 
@@ -53,9 +53,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./AppRoutes";
 
+
 const queryClient = new QueryClient();
 
 const App = () => (
+
+
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />

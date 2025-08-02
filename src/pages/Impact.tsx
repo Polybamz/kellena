@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { AnimatedNumber } from "@/components/QuickImpact";
 
 const Impact = () => {
   const impactStats = [
@@ -120,7 +121,7 @@ const Impact = () => {
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-4">{stat.icon}</div>
                   <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                    {stat.number}
+                    <AnimatedNumber value={stat.number}/>
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">
                     {stat.label}

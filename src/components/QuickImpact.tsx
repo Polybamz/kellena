@@ -1,13 +1,13 @@
 import { useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 // Make sure you have framer-motion installed: npm install framer-motion
-import { motion, useInView, animate } from "framer-motion";
+import { motion, useInView, animate, color } from "framer-motion";
 
 /**
  * NEW: AnimatedNumber Component
  * A reusable component to animate a number counting up.
  */
-function AnimatedNumber({ value }) {
+export function AnimatedNumber({ value }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -15,7 +15,7 @@ function AnimatedNumber({ value }) {
     if (isInView && ref.current) {
       // Extracts the numerical part from the string (e.g., "5,000+" -> 5000)
       const numberValue = parseInt(value.replace(/[^0-9]/g, ""), 10);
-      
+
       const controls = animate(0, numberValue, {
         duration: 2, // Animation duration in seconds
         ease: "easeOut",
@@ -24,11 +24,11 @@ function AnimatedNumber({ value }) {
           ref.current.textContent = latest.toLocaleString();
         },
         onComplete() {
-            // After animation, set the final text content including non-numeric parts
-            ref.current.textContent = value;
+          // After animation, set the final text content including non-numeric parts
+          ref.current.textContent = value;
         }
       });
-      
+
       return () => controls.stop();
     }
   }, [isInView, value]);
@@ -42,31 +42,35 @@ const QuickImpact = () => {
   const impactStats = [
     {
       icon: "🏘️",
-      number: "50+",
+      number: "80+",
       label: "Communities Served",
-      description: "Across rural and urban areas in Cameroon"
+      description: "Across rural and urban areas in Cameroon",
+      color: "bg-blue-100"
     },
     {
       icon: "👥",
       number: "5,000+",
       label: "Lives Transformed",
-      description: "Through our empowerment programs"
+      description: "Through our empowerment programs",
+      color: "bg-red-100"
     },
     {
       icon: "🎓",
       number: "200+",
       label: "Youth Trained",
-      description: "In livelihood and leadership skills"
+      description: "In livelihood and leadership skills",
+      color: "bg-green-100"
     },
     {
       icon: "💰",
       // Updated currency for Cameroon
-      number: "FCFA 50M+", 
+      number: "N/A",
       label: "Economic Impact",
-      description: "Generated through our programs"
+      description: "Generated through our programs",
+      color: "bg-yellow-100/50"
     }
   ];
-  
+
   // Framer Motion variants for the container and items
   const containerVariants = {
     hidden: {},
@@ -79,8 +83,8 @@ const QuickImpact = () => {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 }, // Start invisible and 50px down
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.5,
@@ -102,7 +106,7 @@ const QuickImpact = () => {
         </div>
 
         {/* Use motion.div for the grid container to orchestrate animations */}
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
@@ -112,17 +116,24 @@ const QuickImpact = () => {
           {impactStats.map((stat, index) => (
             // Use motion.div for each card to apply item variants
             <motion.div key={index} variants={cardVariants}>
-              <Card className="h-full bg-card border-border/50 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
-                <CardContent className="p-6 text-center flex flex-col items-center h-full">
-                  <div className="text-5xl mb-4">{stat.icon}</div>
-                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              <Card className={`h-full ${stat.color} min-h-[200px] border-border/50 hover:shadow-lg  hover:-translate-y-2 transition-all duration-300 relative`}>
+                <div className="h-[60px] w-[60px] absolute left-3 bottom-20 border boreder-blue-900/40  rounded-full"></div>
+                <div className="h-[30px] w-[30px] absolute right-4 bottom-20 border boreder-blue-900/40  rounded-full"></div>
+                <div className="h-[60px] w-[60px] absolute right-4 bottom-2 border boreder-blue-900/40  rounded-full"></div>
+                <CardContent className="p-6 text-center  flex flex-col justify-center items-center h-full">
+                  <div className="text-3xl mb-2 bg-white h-[70px] w-[70px] flex justify-center items-center rounded-full absolute top-[-30px] right-[40%] p-1 ">
+                    <div className="w-full h-full border-2 border-dashed rounded-full flex justify-center items-center">
+                      {stat.icon}
+
+                    </div>                  </div>
+                  <div className="text-3xl md:text-4xl font-bold text-primary ">
                     {/* Use the new AnimatedNumber component */}
                     <AnimatedNumber value={stat.number} />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">
                     {stat.label}
                   </h3>
-                  <p className="text-muted-foreground text-sm mt-auto">
+                  <p className="text-muted-foreground text-sm">
                     {stat.description}
                   </p>
                 </CardContent>

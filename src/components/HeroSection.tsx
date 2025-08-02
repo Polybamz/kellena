@@ -8,6 +8,7 @@ import meeting1 from "@/assets/images/landing/meeting1.jpg";
 import meeting2 from "@/assets/images/landing/meeting2.jpg";
 import meeting3 from "@/assets/images/landing/meeting3.jpg";
 
+
 // Make sure your image paths are correct and accessible
 const imagesLanding = [
   landing,

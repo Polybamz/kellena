@@ -3,9 +3,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface MediaDisplayProps {
     mediaUrls?: string[];
+    className?: string
 }
 
-const MediaDisplay: React.FC<MediaDisplayProps> = ({ mediaUrls = [] }) => {
+const MediaDisplay: React.FC<MediaDisplayProps> = ({ mediaUrls = [], className }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     if (!mediaUrls.length) {
@@ -24,7 +25,7 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({ mediaUrls = [] }) => {
     const isVideo = /\.(mp4|mov|webm|ogg)$/i.test(currentUrl);
 
     return (
-        <div className="relative w-full h-[70vh] bg-white dark:bg-gray-900 rounded-lg overflow-hidden">
+        <div className={className ? className : "relative w-full h-[70vh] bg-white dark:bg-gray-900 rounded-lg overflow-hidden"}>
             <div className="w-full h-full flex items-center justify-center bg-background">
                 {isVideo ? (
                     <video

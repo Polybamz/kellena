@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProgramsOverview = () => {
   // NOTE: The unused 'events' variable has been removed.
+  const [sliceValue, setSliceValue] = useState(true)
+
 
   const programs = [
     {
@@ -14,7 +18,7 @@ const ProgramsOverview = () => {
       color: "border-primary" // e.g., border-blue-500
     },
     {
-      title: "Child Protection",
+      title: "Child Protectio/Safeguarding",
       icon: "🛡️",
       description: "Safeguarding children from violence and ensuring their rights are protected through comprehensive protection measures.",
       highlights: ["Child Safety", "Violence Prevention", "Rights Protection"],
@@ -34,7 +38,24 @@ const ProgramsOverview = () => {
       highlights: ["Clean Water", "Sanitation", "Health Education"],
       color: "border-red-500" // Example color
     }
+
+    ,
+    {
+      title: "Sexual and Producrive Health Right",
+      icon: "🧑🏾‍🦳",
+      description: "Fight against gender base voilence",
+      highlights: ["Clean Water", "Sanitation", "Health Education"],
+      color: "border-blue-500" // Example color
+    },
+    {
+      title: "GBV",
+      icon: "🧑🏾‍🦳",
+      description: "Fight against gender based violence",
+      highlights: ["Clean Water", "Sanitation", "Health Education"],
+      color: "border-blue-500" // Example color
+    }
   ];
+  const [disPro] = useState(programs.slice(0, 3))
 
   // Animation variants for the main grid container
   const gridVariants = {
@@ -57,9 +78,9 @@ const ProgramsOverview = () => {
   const highlightsContainerVariants = {
     hidden: {},
     visible: {
-        transition: {
-            staggerChildren: 0.1, // Stagger the tags
-        },
+      transition: {
+        staggerChildren: 0.1, // Stagger the tags
+      },
     },
   };
 
@@ -71,71 +92,48 @@ const ProgramsOverview = () => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Our Core Programs
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            KELLENA operates four integrated programs designed to address the root causes of 
-            community challenges while building resilience and hope.
-          </p>
-        </div>
-
         <motion.div
-          className="grid md:grid-cols-2 gap-8 mb-12"
           variants={gridVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-        >
-          {programs.map((program, index) => (
-            <motion.div key={index} variants={cardVariants}>
-              <Card className={`relative h-full overflow-hidden bg-card hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border ${program.color} border-l-4`}>
-                <CardHeader className="pb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="text-4xl">{program.icon}</div>
-                    <CardTitle className="text-xl font-bold text-foreground">
-                      {program.title}
-                    </CardTitle>
+          className="w-full flex max-lg:flex-col">
+          <div className="w-1/2 max-lg:w-full flex flex-col justify-start items-start">
+            <p className="text-2xl font-bold text-yellow-500 text-start">What We Do</p>
+            <h1 className="text-5xl text-blue-900 text-start font-bold">Change <br />The World</h1>
+            <p className="text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /> Eligendi molestiae architecto voluptatem similique consequatur quo<br /> eum sapiente numquam dolorum quibusdam, debitis necessitatibus delectus quis,<br /> esse distinctio nulla tempore maxime! Libero?</p>
+            <Link to={"/get-involve"} className="bg-gradient-warm rounded-md py-2 px-4 text-accent-foreground hover:opacity-90 transition-opacity mt-6">Get Involved</Link>
+          </div>
+          <div className="w-1/2 max-lg:w-full flex flex-col justify-start items-start gap-4">
+            {
+              disPro.map((program, index) =>
+                <motion.div key={index} variants={cardVariants} className={`w-full flex justify-center items-center bg-white rounded-4 shadow-lg `}>
+                  <div className={`w-1/3 h-full min-h-[120px] rounded-l-[4px] border ${program.color} flex justify-center items-center text-5xl`}>
+                    {program.icon}
                   </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {program.description}
-                  </p>
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-foreground text-sm">Key Focus Areas:</h4>
-                    <motion.div 
-                        className="flex flex-wrap gap-2"
-                        variants={highlightsContainerVariants}
-                    >
-                      {program.highlights.map((highlight, idx) => (
-                        <motion.span
-                          key={idx}
-                          className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full"
-                          variants={highlightItemVariants}
-                        >
-                          {highlight}
-                        </motion.span>
-                      ))}
-                    </motion.div>
+                  <div className="w-full flex flex-col justify-start items-start gap-2 p-2">
+                    <p className="text-2xl text-blue-900 font-[600]">{program.title}</p>
+                    <p>{program.description}</p>
+                    <div className="flex gap-2">
+                      {
+                        program.highlights.map((item, index) => (
+                          <div key={index} className="px-2 bg-red-100/50 rounded-full flex  items-center justify-center">
+                            <p>{item}</p>
+                          </div>
+                        ))
+                      }
+                    </div>
                   </div>
-                  <Button variant="outline" className="w-full mt-4 hover:bg-primary hover:text-primary-foreground transition-colors">
-                    Learn More
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                </motion.div>
+              )
+            }
+          </div>
         </motion.div>
-
-        <div className="text-center">
-          <Button 
-            size="lg" 
-            className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all active:scale-95 hover:scale-105 px-8 py-6 text-lg"
-          >
-            View All Programs
-          </Button>
+        <div className="text-center mt-5">
+          <Link to={'/programs'}
+            className="underlined text-blue-900 hover:bg-primary/90 transition-all active:scale-95 hover:scale-105 px-8 py-2 rounded-[4px] text-lg"
+          >View All Programs</Link>
+      
         </div>
       </div>
     </section>

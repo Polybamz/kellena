@@ -3,41 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 const BlogSection = () => {
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Little Bibi's Journey – From Crisis to Hope",
-      excerpt: "Follow the inspiring story of Little Bibi, a 3-year-old who overcame malnutrition and health challenges with the help of KELLENA's emergency response program.",
-      category: "Medical Aid",
-      tags: ["Children", "Success Stories", "Medical Aid"],
-      date: "January 15, 2024",
-      author: "KELLENA Team",
-      image: "/src/assets/little-bibi-hero.jpg",
-      readTime: "5 min read"
-    },
-    {
-      id: 2,
-      title: "Building Empathy Circles in Rural Communities",
-      excerpt: "How our empathy circles are creating safe spaces for healing and connection across Cameroon's rural areas.",
-      category: "Community Programs",
-      tags: ["Empathy", "Community", "Healing"],
-      date: "January 10, 2024",
-      author: "Dr. Sarah Ngoma",
-      image: "/src/assets/little-bibi-hero.jpg", // Placeholder
-      readTime: "7 min read"
-    },
-    {
-      id: 3,
-      title: "Youth Leadership Training Graduates 50 New Leaders",
-      excerpt: "Celebrating our latest cohort of young leaders who are now driving change in their communities.",
-      category: "Youth Empowerment",
-      tags: ["Youth", "Leadership", "Training"],
-      date: "January 5, 2024",
-      author: "Michael Tanga",
-      image: "/src/assets/little-bibi-hero.jpg", // Placeholder
-      readTime: "4 min read"
-    }
-  ];
+      const story = JSON.parse(localStorage.getItem('impactStories'))
+
+  const blogPosts = [];
 
   return (
     <section className="py-16 bg-muted/30">
@@ -50,8 +18,17 @@ const BlogSection = () => {
             Stay updated with our latest field stories, program updates, and community impact reports.
           </p>
         </div>
+ {blogPosts.length == 0 && (
+          <div className="w-full flex justify-center items-center ">
+  <div className="border-2 border-dashed lg:min-w-[600px] min-h-[200px]  flex flex-col justify-center items-center">
+    No news available
 
+            </div>
+
+          </div>
+          )}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+         
           {blogPosts.map((post) => (
             <Card key={post.id} className="bg-card border-border/50 overflow-hidden hover:shadow-soft transition-all duration-300 animate-scale-in">
               <div className="h-48 overflow-hidden">

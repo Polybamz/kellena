@@ -202,9 +202,11 @@ const Programs = () => {
                     <span className="text-sm font-medium text-accent">
                       Focus: {program.impact}
                     </span>
+                    <Link to={`/programs/details/${program.id}`}>
                     <Button size="sm" variant="outline">
                       Learn More
                     </Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -268,8 +270,8 @@ const Programs = () => {
 
                   {/* Event Media */}
                   <div className="px-6 mb-4">
-                    <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-                      <MediaDisplay mediaUrls={event.images} />
+                    <div className="aspect-video rounded-lg bg-muted">
+                      <MediaDisplay mediaUrls={event.images} className="relative w-full h-[200px] bg-white dark:bg-gray-900 rounded-lg overflow-hidden"/>
                     </div>
                   </div>
 
@@ -342,7 +344,7 @@ const Programs = () => {
                         {/* Event Media */}
                   <div className="px-6 mb-4">
                     <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-                      <MediaDisplay mediaUrls={event.gallery} />
+                      <MediaDisplay mediaUrls={event.gallery} className="relative w-full h-[200px] bg-white dark:bg-gray-900 rounded-lg overflow-hidden" />
                     </div>
                   </div>
                          <p className="text-muted-foreground leading-relaxed line-clamp-4 mb-6">

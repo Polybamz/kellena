@@ -31,7 +31,7 @@ const DonateNow = () => {
       </p>
 
       {/* Amount Input */}
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+      <div className="flex flex-col sm:flex-row justify-center items-center hidden gap-4">
         <input
           type="number"
           value={amount}
@@ -49,18 +49,18 @@ const DonateNow = () => {
 
       {/* Mobile Money & Bank Info */}
       <div className="bg-card border rounded p-6 space-y-4">
-        <h2 className="text-xl font-semibold">Other Donation Methods</h2>
+        <h2 className="text-xl font-semibold">Donation Methods</h2>
 
         <div>
           <p className="font-medium">Mobile Money (MTN & Orange)</p>
           <ul className="list-disc ml-6 text-muted-foreground">
-            <li>MTN MoMo: <span className="font-semibold">+237 6 77 12 34 56</span></li>
-            <li>Orange Money: <span className="font-semibold">+237 6 90 78 90 12</span></li>
+            <li>MTN MoMo: <span className="font-semibold">+237 6 82 90 21 11</span></li>
+            <li>MOMO Name: <span className="font-semibold">Njoya Kelvin</span></li>
           </ul>
         </div>
 
-        <div>
-          <p className="font-medium">Bank Transfer</p>
+        <div className="blur">
+          <p className="font-medium ">Bank Transfer</p>
           <ul className="text-muted-foreground space-y-1 ml-2">
             <li>Bank Name: Afriland First Bank</li>
             <li>Account Name: Kellena Empowerment Foundation</li>
@@ -71,7 +71,7 @@ const DonateNow = () => {
       </div>
 
       {/* PayPal Option */}
-      <div className="text-center space-y-2">
+      <div className="text-center space-y-2 blur">
         <p className="text-muted-foreground">International donations via PayPal:</p>
         <div className="flex justify-center">
           <img

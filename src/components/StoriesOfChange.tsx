@@ -6,21 +6,12 @@ const StoriesOfChange = () => {
 
   const stories = [
     {
-      id: 1,
-      name: "Little Bibi",
-      age: "3 years old",
-      story: "Bibi was brought to us in critical condition, malnourished and in need of immediate medical care. Through our emergency response program and the generosity of donors, Bibi received life-saving treatment and is now thriving.",
-      impact: "Medical Care & Nutrition",
-      image: "/src/assets/little-bibi-hero.jpg",
-      status: "Recovering"
-    },
-    {
       id: 2,
       name: "Marie's Family",
       age: "Family of 6",
       story: "After losing their livelihood due to economic hardship, Marie's family joined our empowerment program. They received skills training and micro-loans to start a small business.",
       impact: "Livelihood Empowerment",
-      image: "/src/assets/little-bibi-hero.jpg", // Placeholder - would need different image
+      image: null, // Placeholder - would need different image
       status: "Self-Sufficient"
     },
     {
@@ -29,7 +20,7 @@ const StoriesOfChange = () => {
       age: "15-25 years",
       story: "20 young people from rural communities participated in our empathy circles and leadership training. They're now community advocates and change-makers.",
       impact: "Youth Empowerment",
-      image: "/src/assets/little-bibi-hero.jpg", // Placeholder - would need different image
+      image: null, // Placeholder - would need different image
       status: "Leading Change"
     }
   ];
@@ -51,13 +42,13 @@ const StoriesOfChange = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {stories.map((story) => (
             <Card key={story.id} className="bg-gradient-card border-border/50 overflow-hidden hover:shadow-soft transition-all duration-300">
-              <div className="h-48 overflow-hidden">
+            {story.image && (  <div className="h-48 overflow-hidden">
                 <img 
                   src={story.image} 
                   alt={story.name}
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </div>)}
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-3">
                   <div>

@@ -3,8 +3,49 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import useNewsLetterRegistration from "@/hooks/use-news-letter-registration";
 
 const News = () => {
+
+  
+    const [email, setEmail] = useState("");
+    const { isRegistered, error, loading, register } = useNewsLetterRegistration();
+  
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      if (!email) { 
+       console.log('email is empty')
+      } else {
+        await register(email);
+      }
+    };
+    const actionCards = [
+      {
+        title: "Donate",
+        icon: "💖",
+        description: "Support our programs with a one-time or monthly donation",
+        action: "Donate Now",
+        bg: "bg-gradient-primary",
+        textColor: "text-primary-foreground"
+      },
+      {
+        title: "Volunteer",
+        icon: "🤝",
+        description: "Join our team and make a direct impact in communities",
+        action: "Get Involved",
+        bg: "bg-gradient-warm",
+        textColor: "text-accent-foreground"
+      },
+      {
+        title: "Partner",
+        icon: "🌍",
+        description: "Collaborate with us on sustainable development projects",
+        action: "Partner With Us",
+        bg: "bg-secondary",
+        textColor: "text-secondary-foreground"
+      }
+    ];
   const featuredPost = {
     id: 1,
     title: "Little Bibi's Journey – From Crisis to Hope",
@@ -19,61 +60,61 @@ const News = () => {
   };
 
   const newsPosts = [
-    {
-      id: 2,
-      title: "Building Empathy Circles in Rural Communities",
-      excerpt: "How our empathy circles are creating safe spaces for healing and connection across Cameroon's rural areas, fostering community resilience and mutual support.",
-      category: "Community Programs",
-      tags: ["Empathy", "Community", "Healing"],
-      date: "January 10, 2024",
-      author: "Dr. Sarah Ngoma",
-      image: "/src/assets/little-bibi-hero.jpg",
-      readTime: "7 min read"
-    },
-    {
-      id: 3,
-      title: "Emergency Response Network Saves Lives",
-      excerpt: "Our newly established emergency response network has successfully coordinated 15 medical emergencies, achieving a 100% success rate in critical interventions.",
-      category: "Emergency Response",
-      tags: ["Emergency", "Healthcare", "Network"],
-      date: "January 8, 2024",
-      author: "Michael Tanga",
-      image: "/src/assets/little-bibi-hero.jpg",
-      readTime: "5 min read"
-    },
-    {
-      id: 4,
-      title: "Community Mobilization in Donga-Mantung",
-      excerpt: "Regular engagement from local donors and volunteers continues to grow, with over 2,000 active community members now supporting our mission.",
-      category: "Community",
-      tags: ["Volunteers", "Community", "Growth"],
-      date: "January 5, 2024",
-      author: "Grace Fon",
-      image: "/src/assets/little-bibi-hero.jpg",
-      readTime: "6 min read"
-    },
-    {
-      id: 5,
-      title: "Healthcare Partnerships Expand Access",
-      excerpt: "New collaborations with regional hospitals and clinics are improving healthcare access for vulnerable populations across rural Cameroon.",
-      category: "Healthcare",
-      tags: ["Healthcare", "Partnerships", "Access"],
-      date: "December 28, 2023",
-      author: "Dr. Paul Mboh",
-      image: "/src/assets/little-bibi-hero.jpg",
-      readTime: "4 min read"
-    },
-    {
-      id: 6,
-      title: "Livelihood Programs Show Promising Results",
-      excerpt: "Our economic empowerment initiatives for women-led households are showing significant impact, with families achieving greater self-sufficiency.",
-      category: "Livelihood",
-      tags: ["Women", "Empowerment", "Economics"],
-      date: "December 20, 2023",
-      author: "Elizabeth Nji",
-      image: "/src/assets/little-bibi-hero.jpg",
-      readTime: "6 min read"
-    }
+  //   {
+  //     id: 2,
+  //     title: "Building Empathy Circles in Rural Communities",
+  //     excerpt: "How our empathy circles are creating safe spaces for healing and connection across Cameroon's rural areas, fostering community resilience and mutual support.",
+  //     category: "Community Programs",
+  //     tags: ["Empathy", "Community", "Healing"],
+  //     date: "January 10, 2024",
+  //     author: "Dr. Sarah Ngoma",
+  //     image: "/src/assets/little-bibi-hero.jpg",
+  //     readTime: "7 min read"
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Emergency Response Network Saves Lives",
+  //     excerpt: "Our newly established emergency response network has successfully coordinated 15 medical emergencies, achieving a 100% success rate in critical interventions.",
+  //     category: "Emergency Response",
+  //     tags: ["Emergency", "Healthcare", "Network"],
+  //     date: "January 8, 2024",
+  //     author: "Michael Tanga",
+  //     image: "/src/assets/little-bibi-hero.jpg",
+  //     readTime: "5 min read"
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Community Mobilization in Donga-Mantung",
+  //     excerpt: "Regular engagement from local donors and volunteers continues to grow, with over 2,000 active community members now supporting our mission.",
+  //     category: "Community",
+  //     tags: ["Volunteers", "Community", "Growth"],
+  //     date: "January 5, 2024",
+  //     author: "Grace Fon",
+  //     image: "/src/assets/little-bibi-hero.jpg",
+  //     readTime: "6 min read"
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Healthcare Partnerships Expand Access",
+  //     excerpt: "New collaborations with regional hospitals and clinics are improving healthcare access for vulnerable populations across rural Cameroon.",
+  //     category: "Healthcare",
+  //     tags: ["Healthcare", "Partnerships", "Access"],
+  //     date: "December 28, 2023",
+  //     author: "Dr. Paul Mboh",
+  //     image: "/src/assets/little-bibi-hero.jpg",
+  //     readTime: "4 min read"
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "Livelihood Programs Show Promising Results",
+  //     excerpt: "Our economic empowerment initiatives for women-led households are showing significant impact, with families achieving greater self-sufficiency.",
+  //     category: "Livelihood",
+  //     tags: ["Women", "Empowerment", "Economics"],
+  //     date: "December 20, 2023",
+  //     author: "Elizabeth Nji",
+  //     image: "/src/assets/little-bibi-hero.jpg",
+  //     readTime: "6 min read"
+  //   }
   ];
 
   const categories = [
@@ -124,7 +165,7 @@ const News = () => {
       </section>
 
       {/* Featured Post */}
-      <section className="py-12 bg-background">
+      {/* <section className="py-12 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Featured Story</h2>
@@ -176,10 +217,10 @@ const News = () => {
             </div>
           </Card>
         </div>
-      </section>
+      </section> */}
 
       {/* News Grid */}
-      <section className="py-12 bg-muted/30">
+      {/* <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">Latest Updates</h2>
@@ -234,7 +275,7 @@ const News = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Newsletter Signup */}
       <section className="py-16 bg-background">
@@ -248,16 +289,23 @@ const News = () => {
             </p>
             
             <Card className="p-6 bg-gradient-card border-border/50">
-              <div className="flex flex-col sm:flex-row gap-4">
+              <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleSubmit}>
                 <input 
-                  type="email" 
+                  type="mail" 
                   placeholder="Enter your email address"
+                  value={email}
+                  onChange={(e)=>setEmail(e.target.value)}
                   className="flex-1 px-4 py-2 rounded-lg border border-border bg-background text-foreground"
                 />
-                <Button className="bg-gradient-warm text-accent-foreground hover:opacity-90">
-                  Subscribe
+                <Button type="submit" disabled={loading || isRegistered} className="bg-gradient-warm text-accent-foreground hover:opacity-90">
+                  {loading ? 'Subscribing' : isRegistered ? 'Subscribed': 'Subscribe'}
                 </Button>
-              </div>
+              </form>
+               {
+                error && (
+                        <div className="mt-4 p-4 text-center bg-red-200/50 border border-red-800 rounded-lg text-red-500">{error}</div>
+                )
+              }
               <p className="text-xs text-muted-foreground mt-4">
                 We respect your privacy and will never share your email with third parties.
               </p>

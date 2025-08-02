@@ -125,7 +125,7 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <Card className="bg-blue-900 text-white relative  border-border/50  hover:scale-110 hover:-translate-y-2 transition-all duration-300">
-              <div className="w-[180px] max-sm:hidden h-[60px] rotate-45 absolute top-1 p-2 right-[-40px] bg-white">
+              <div className="w-[180px]  h-[60px] rotate-45 absolute top-1 p-2 right-[-40px] bg-white">
                 <div className="w-full h-full border-2 border-dashed">
                   <CardTitle className="text-2xl text-center text-blue-900">Our Mission</CardTitle>
 
@@ -143,7 +143,7 @@ const About = () => {
             </Card>
 
             <Card className="bg-gradient-card relative  border-border/50 hover:scale-110 hover:-translate-y-2 transition-all duration-300">
-              <div className="w-[180px] h-[60px] max-sm:hidden rotate-45 bg-blue-900  absolute top-1 p-2 right-[-40px] bg-white">
+              <div className="w-[180px] h-[60px] rotate-45 bg-blue-900  absolute top-1 p-2 right-[-40px] bg-white">
                 <div className="w-full h-full border-2 border-dashed">
                   <CardTitle className="text-2xl text-center text-blue-900 ">Our Vision</CardTitle>
 

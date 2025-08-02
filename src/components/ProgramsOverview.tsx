@@ -107,14 +107,14 @@ const ProgramsOverview = () => {
           <div className="w-1/2 max-lg:w-full flex flex-col justify-start items-start gap-4">
             {
               disPro.map((program, index) =>
-                <motion.div key={index} variants={cardVariants} className={`w-full flex justify-center items-center bg-white rounded-4 shadow-lg `}>
+                <motion.div key={index} variants={cardVariants} className={`w-full flex  justify-center items-center bg-white rounded-4 shadow-lg `}>
                   <div className={`w-1/3 h-full min-h-[120px] rounded-l-[4px] border ${program.color} flex justify-center items-center text-5xl`}>
                     {program.icon}
                   </div>
-                  <div className="w-full flex flex-col justify-start items-start gap-2 p-2">
+                  <div className="w-full max-sm:w-2/3 flex flex-col justify-start items-start gap-2 p-2">
                     <p className="text-2xl text-blue-900 font-[600]">{program.title}</p>
                     <p>{program.description}</p>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 max-sm:flex-wrap">
                       {
                         program.highlights.map((item, index) => (
                           <div key={index} className="px-2 bg-red-100/50 rounded-full flex  items-center justify-center">

@@ -69,19 +69,16 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-              <p className="text-secondary-foreground/90 leading-relaxed">
-                Keeping Empathy and Livelihood Empowerment Network Association (KELLENA) 
-                is dedicated to building stronger, more compassionate communities across Cameroon.
-              </p>
+              
               <div className="space-y-2">
                 <p className="text-sm">
-                  <strong>Email:</strong> kellen.association@gmail.com
+                  <strong>Email:</strong> kellen.association21@gmail.com
                 </p>
                 <p className="text-sm">
                   <strong>Phone:</strong> +237 6 82 90 21 11
                 </p>
                 <p className="text-sm">
-                  <strong>Address:</strong> Yaoundé, Cameroon
+                  <strong>Address:</strong> Nkambe, North West Region Cameroon
                 </p>
               </div>
             </div>

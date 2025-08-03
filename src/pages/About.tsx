@@ -12,8 +12,8 @@ const imagesList: Array<string> = [m1, m2, m3, m4, m4]
 const About = () => {
   const activities = [
     {
-      title: "📃We Ltsten Before We Act",
-      text: "Every project beging with listerning. We sit on porches, in classrooms, Under tqrpaulins whether stories unfold. Solutions come not from outside experts, but from the wisdom already living in the community",
+      title: "📃We Listen Before We Act",
+      text: "Every project beging with listerning. We sit on porches, in classrooms, Under trampaulins whether stories untold. Solutions come not from outside experts, but from the wisdom already living in the community",
       url: m1
     },
     {
@@ -137,7 +137,7 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-white leading-relaxed text-center">
-                  To enhance mental health and provide psychosocial support to individuals in need, while safeguarding children from violence and promoting inclusion of individuals with disabilities in community activities and education.
+                  To promote mental health and psychosocial wellbeing, safeguard children and vulnerable individuals, prevent gender-based violence, ensure access to clean water and sanitation, protect the environment, and promote disability inclusion through advocacy, education and community-based programs
                 </p>
               </CardContent>
             </Card>
@@ -154,7 +154,8 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed text-center">
-                  An inclusive and empowered society where all individuals, regardless of their background or abilities, have equal opportunities and support in safe, equal, and sustainable communities.
+                  To promote <br/>1. An Inclusive and Enpowered society<br/> 2. Safe, equol, and Sustainable Communities
+                  {/* An inclusive and empowered society where all individuals, regardless of their background or abilities, have equal opportunities and support in safe, equal, and sustainable communities. */}
                 </p>
               </CardContent>
             </Card>
@@ -223,12 +224,12 @@ const About = () => {
             </TabsContent>
           </Tabs>
         </div>
-        <div className="w-full flex flex-col p-6">
+        <div className="w-full flex flex-col lg:p-6">
           {activities.map((activity, index) => (
             <div className={`w-full flex justify-center items-center bg-transpqrent border-0 shadow-0`}>
-              <CardContent className={`w-[95%] lg:h-[400px] flex ${index % 2 == 0 ? 'flex-row max-lg:flex-col' : 'flex-row-reverse max-lg:flex-col'} justify-center items-center`}>
+              <CardContent className={`lg:w-[95%] w-full border-0 lg:h-[400px] flex ${index % 2 == 0 ? 'flex-row max-lg:flex-col' : 'flex-row-reverse max-lg:flex-col'} justify-center items-center`}>
 
-                <div className="w-1/2 p-4 max-lg:w-full">
+                <div className="w-1/2 lg:p-4 max-lg:w-full border-0">
                   <CardHeader>
                     <CardTitle>{activity.title}</CardTitle>
                   </CardHeader>
@@ -236,7 +237,7 @@ const About = () => {
                     {activity.text}
                   </p>
                 </div>
-                <div className="w-1/2 h-full p-4 max-lg:w-full flex justify-center items-center">
+                <div className="w-1/2 h-full lg:p-4 max-lg:w-full flex justify-center items-center">
                   <img src={activity.url} alt="" className="  max-h-[400px] h-auto mx-auto object-cover border-2 border-primary/20 rounded-[4px]"
                   />
                 </div>

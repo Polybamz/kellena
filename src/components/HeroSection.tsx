@@ -7,6 +7,7 @@ import landing from "@/assets/images/landing/landing.jpg";
 import meeting1 from "@/assets/images/landing/meeting1.jpg";
 import meeting2 from "@/assets/images/landing/meeting2.jpg";
 import meeting3 from "@/assets/images/landing/meeting3.jpg";
+import { Link } from "react-router-dom";
 
 
 // Make sure your image paths are correct and accessible
@@ -25,26 +26,29 @@ const HeroSection = () => {
       title: "Empowering Communities Through Compassion",
       subtitle: "Building sustainable livelihoods and fostering empathy across Cameroon",
       cta: "Join Our Mission",
-      stats: { number: "5,000+", label: "Lives Transformed" }
+      stats: { number: "5,000+", label: "Lives Transformed" },
+      link: '/get-involved'
     },
     {
       title: "Youth Empowerment for Tomorrow",
       subtitle: "Equipping young minds with skills, opportunities, and hope for the future",
       cta: "Support Youth",
-      stats: { number: "200+", label: "Youth Trained" }
+      stats: { number: "200+", label: "Youth Trained" },
+      link: '/get-involved'
     },
     {
       title: "Building Empathy Circles",
       subtitle: "Creating safe spaces for healing, understanding, and community connection",
       cta: "Learn More",
-      stats: { number: "50+", label: "Communities Reached" }
+      stats: { number: "50+", label: "Communities Reached" },
+      link: '/about'
     }
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000); // Changed to 7000ms to allow animations to complete comfortably
+    }, 8000); // Changed to 7000ms to allow animations to complete comfortably
     return () => clearInterval(timer);
   }, [heroSlides.length]);
 
@@ -119,12 +123,15 @@ const HeroSection = () => {
 
               {/* Hero CTA Buttons with hover animation */}
               <motion.div variants={textItemVariants} className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent-light transition-all shadow-warm text-lg px-8 py-6 hover:scale-105 active:scale-100">
+                <Link to={`${heroSlides[currentSlide].link}`}>
+                    <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent-light transition-all shadow-warm text-lg px-8 py-6 hover:scale-105 active:scale-100">
                   {heroSlides[currentSlide].cta}
                 </Button>
-                <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-all text-lg px-8 py-6 hover:scale-105 active:scale-100">
+                </Link>
+               
+                {/* <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-all text-lg px-8 py-6 hover:scale-105 active:scale-100">
                   Watch Our Story
-                </Button>
+                </Button> */}
               </motion.div>
 
               {/* Impact Stats with animated number */}

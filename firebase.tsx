@@ -12,7 +12,11 @@ import {
   setDoc,
   doc,
   orderBy,
+  addDoc,
+  Timestamp
 } from "firebase/firestore";
+
+
 
 // volunteers
 export type VolunteerType = {
@@ -222,21 +226,19 @@ export const becomeABeneficiary = async (programId: string, email: string) => {
 };
 
 // become a volunteer
-export const becomeAVolunteer = async (volunteer: VolunteerType) => {
+export const createVolunteer = async (volunteer: VolunteerType) => {
   try {
-    const docRef = doc(db, "volunteers", volunteer.email);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      return true;
-    } else {
-      await setDoc(docRef, volunteer);
-      return {sucess: true};
-    }
-  } catch (error) {
-    console.error("Failed to become a volunteer:", error.message);
-    return {success:false};
-  }
-};
+    const response = await addDoc(collection(db, "volunteers"), {
+      ...volunteer,
+      createdAt: Timestamp.now(),
+    })
+    return {success: true, id: response.id};
+  } catch (er) {
+    return {success: false, message: er.message}
+   }
+}
+
+
 
 
 

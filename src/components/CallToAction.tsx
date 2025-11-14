@@ -2,17 +2,21 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import useNewsLetterRegistration from "@/hooks/use-news-letter-registration";
+import { Link } from "react-router-dom";
+import AddVolunteerModal from "./ui/addVolunteerModal";
 // import { useToast } from "@/hooks/use-toast";
 
 const CallToAction = () => {
 
   const [email, setEmail] = useState("");
+  const [showModal, setShowModal] = useState<boolean>()
+  const [modalTitle, setModalTitle] = useState('')
   const { isRegistered, error, loading, register } = useNewsLetterRegistration();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!email) { 
-     console.log('email is empty')
+    if (!email) {
+      console.log('email is empty')
     } else {
       await register(email);
     }
@@ -52,14 +56,14 @@ const CallToAction = () => {
             Join Our Mission
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            There are many ways to support KELLENA's work in building empathetic, 
+            There are many ways to support KELLENA's work in building empathetic,
             empowered communities across Cameroon.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {actionCards.map((card, index) => (
-            <Card 
+            <Card
               key={index}
               className={`${card.bg} ${card.textColor} border-none hover:shadow-warm transition-all duration-300 animate-scale-in`}
               style={{ animationDelay: `${index * 0.1}s` }}
@@ -70,12 +74,21 @@ const CallToAction = () => {
                 <p className="mb-6 opacity-90 leading-relaxed">
                   {card.description}
                 </p>
-                <Button 
-                  variant="secondary" 
+                {card.action == 'Donate Now' ? <Link to="/donate"><Button
+                  variant="secondary"
                   className="w-full bg-white/20 border-white/30 hover:bg-white/30 backdrop-blur text-inherit"
                 >
                   {card.action}
-                </Button>
+                </Button></Link> : <Button
+                onClick={()=>{
+                  setModalTitle(card.description)
+                  setShowModal(true)
+                }}
+                  variant="secondary"
+                  className="w-full bg-white/20 border-white/30 hover:bg-white/30 backdrop-blur text-inherit"
+                >
+                  {card.action}
+                </Button>}
               </CardContent>
             </Card>
           ))}
@@ -92,20 +105,20 @@ const CallToAction = () => {
                 Get updates on our programs, success stories, and upcoming events.
               </p>
               <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleSubmit}>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="Enter your email address"
                   className="flex-1 px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 />
                 <Button type="submit" className="bg-primary text-primary-foreground hover:bg-primary-light px-8" disabled={loading || isRegistered}>
-                 {loading ? 'Loading...' : isRegistered ? 'Subscribed' : 'Subscribe'}
+                  {loading ? 'Loading...' : isRegistered ? 'Subscribed' : 'Subscribe'}
                 </Button>
               </form>
               {
                 error && (
-                        <div className="mt-4 p-4 text-center bg-red-200/50 border border-red-800 rounded-lg text-red-500">{error}</div>
+                  <div className="mt-4 p-4 text-center bg-red-200/50 border border-red-800 rounded-lg text-red-500">{error}</div>
                 )
               }
 
@@ -113,6 +126,13 @@ const CallToAction = () => {
           </Card>
         </div>
       </div>
+      <AddVolunteerModal
+          open={showModal}
+          onClose={()=>setShowModal(false)}
+          onVolunteerAdded={() => setShowModal(false)}
+          title={modalTitle}
+
+      />
     </section>
   );
 };

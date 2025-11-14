@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -203,9 +203,12 @@ const EventDetails = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     Join us in making a difference in the community through our programs and workshops.
                   </p>
-                  <Button className="w-full bg-gradient-warm text-accent-foreground hover:opacity-90">
+                  <Link to = '/get-involved'>
+                     <Button className="w-full bg-gradient-warm text-accent-foreground hover:opacity-90">
                     Get Involved
                   </Button>
+                  </Link>
+                  
                 </CardContent>
               </Card>
             </div>

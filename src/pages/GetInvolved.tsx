@@ -1,3 +1,5 @@
+
+import React, {useState} from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -5,12 +7,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import AddVolunteerModal from "@/components/ui/addVolunteerModal";
+import { useNavigate } from "react-router-dom";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
 
 const GetInvolved = () => {
+  const [showVolunteerModal, setShowVolunteerModal] = useState(false);
+  const [type,setType] = useState<'volunteer' | 'partner'>()
+  const  navigate = useNavigate();
   const involvementOptions = [
     {
       id: 1,
       title: "Donate",
+      aType:'',
       description: "Support our mission through financial contributions via Mobile Money, bank transfers, or in-kind donations.",
       icon: "💝",
       options: [
@@ -26,6 +36,7 @@ const GetInvolved = () => {
     {
       id: 2,
       title: "Volunteer",
+      aType:'volunteer',
       description: "Join our network of local volunteers who assist with transportation, outreach, and program logistics.",
       icon: "🤝",
       options: [
@@ -41,6 +52,7 @@ const GetInvolved = () => {
     {
       id: 3,
       title: "Partner with Us",
+      aType:'partner',
       description: "KELLENA invites hospitals, civic groups, and businesses to collaborate on sustainable community solutions.",
       icon: "🤝",
       options: [
@@ -53,21 +65,21 @@ const GetInvolved = () => {
       cta: "Explore Partnership",
       highlight: false
     },
-    {
-      id: 4,
-      title: "Join the Conversation",
-      description: "Engage with our active community through social media and our Facebook group for ongoing support and awareness.",
-      icon: "💬",
-      options: [
-        "Facebook community group",
-        "Social media advocacy",
-        "Share our stories",
-        "Raise awareness"
-      ],
-      platforms: ["Facebook", "Instagram", "WhatsApp", "Community Forums"],
-      cta: "Join Community",
-      highlight: false
-    }
+    // {
+    //   id: 4,
+    //   title: "Join the Conversation",
+    //   description: "Engage with our active community through social media and our Facebook group for ongoing support and awareness.",
+    //   icon: "💬",
+    //   options: [
+    //     "Facebook community group",
+    //     "Social media advocacy",
+    //     "Share our stories",
+    //     "Raise awareness"
+    //   ],
+    //   platforms: ["Facebook", "Instagram", "WhatsApp", "Community Forums"],
+    //   cta: "Join Community",
+    //   highlight: false
+    // }
   ];
 
   const upcomingEvents = [
@@ -215,6 +227,22 @@ const GetInvolved = () => {
                   <Button
                     className={option.highlight ? "bg-gradient-warm text-accent-foreground hover:opacity-90 w-full" : "w-full"}
                     variant={option.highlight ? "default" : "outline"}
+                    onClick={() => {
+                      if (option.cta === "Apply to Volunteer" || option.cta === "Join Community") {
+                        setType(option.aType)
+                        setShowVolunteerModal(true);
+                      } else {
+                        // Handle other CTAs
+                        if(option.cta == 'Start Donating'){
+                        
+                            navigate('/donate')
+                          
+                          
+                          return;
+                        }
+                        alert(`You clicked on ${option.cta}`);
+                      }
+                    }}
                   >
                     {option.cta}
                   </Button>
@@ -338,6 +366,15 @@ const GetInvolved = () => {
       </section>
 
       <Footer />
+     
+        <AddVolunteerModal
+          open={showVolunteerModal}
+          onClose={() => setShowVolunteerModal(false)}
+          onVolunteerAdded={() => setShowVolunteerModal(false)}
+          title="Join Kellen"
+          type={type}
+        />
+      
     </div>
   );
 };

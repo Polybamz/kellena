@@ -136,7 +136,7 @@ const Footer = () => {
         <div className="border-t border-secondary-foreground/20 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-secondary-foreground/70">
             <p>
-              © 2024 KELLENA - Keeping Empathy and Livelihood Empowerment Network Association. 
+              © 2025 KELLENA - Keeping Empathy and Livelihood Empowerment Network Association. 
               All rights reserved.
             </p>
             <div className="flex items-center space-x-6">

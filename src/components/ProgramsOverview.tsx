@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 const ProgramsOverview = () => {
   // NOTE: The unused 'events' variable has been removed.
-  const [sliceValue, setSliceValue] = useState(true)
 
 
   const programs = [
@@ -105,7 +104,7 @@ const ProgramsOverview = () => {
               We believe that changing the world doesn't start with power,wealth, or fame.<br /> It begins with one person deciding to care deeply, intentionally, and consistently. <br />At our core, that,s who we are people who care enough to act.<br /><br />
               Our organization was born not from ambition but from compassion.<br /> From listerning to a mother who walks miles for clean water.<br /> From sitting with a child silenced by abused. From hearing the quiet resilience of a person living with a disability who refuses to be invisible.<br /> These moments didn't break us they called us forward
               </p>
-            <Link to={"/get-involve"} className="bg-gradient-warm rounded-md py-2 px-4 text-accent-foreground hover:opacity-90 transition-opacity mt-6">Get Involved</Link>
+            <Link to={"/get-involved"} className="bg-gradient-warm rounded-md py-2 px-4 text-accent-foreground hover:opacity-90 transition-opacity mt-6">Get Involved</Link>
           </div>
           <div className="w-1/2 max-lg:w-full flex flex-col justify-start items-start gap-4">
             {

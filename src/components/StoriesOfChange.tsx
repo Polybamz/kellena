@@ -1,10 +1,20 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
+import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import useGetData from "@/hooks/use-getData";
 const StoriesOfChange = () => {
-    const story = JSON.parse(localStorage.getItem('impactStories'))
+  const [impactStories, setImapctStories] = useState([])
+  const [storyState, setStoryState] = useState({
+    loading:false,
+    error: null,
+    data: []
+  })
+  const story = JSON.parse(localStorage.getItem('impactStories'))
+  const [showAll, setShowAll] = useState<boolean>(false)
+  const {impactStories:storyData, loading, error} = useGetData()
 
-  const stories = [
+  const stories = storyData || [
     {
       id: 2,
       name: "Marie's Family",
@@ -22,10 +32,37 @@ const StoriesOfChange = () => {
       impact: "Youth Empowerment",
       image: null, // Placeholder - would need different image
       status: "Leading Change"
+    },
+     {
+      id: 1,
+      name: "Marie's Family",
+      age: "Family of 6",
+      story: "After losing their livelihood due to economic hardship, Marie's family joined our empowerment program. They received skills training and micro-loans to start a small business.",
+      impact: "Livelihood Empowerment",
+      image: null, // Placeholder - would need different image
+      status: "Self-Sufficient"
+    },
+    {
+      id: 4,
+      name: "Youth Circle",
+      age: "15-25 years",
+      story: "20 young people from rural communities participated in our empathy circles and leadership training. They're now community advocates and change-makers.",
+      impact: "Youth Empowerment",
+      image: null, // Placeholder - would need different image
+      status: "Leading Change"
     }
   ];
 
-  console.log('storiessssssssssssssssssssssssssssssssssssssssssssss',story)
+  console.log('storiessssssssssssssssssssssssssssssssssssssssssssss', story)
+  
+  useEffect(() => {
+    if (showAll) {
+      setImapctStories(stories)
+    } else {
+      setImapctStories(stories.slice(0, 3))
+    }
+
+  },[showAll,stories])
 
   return (
     <section className="py-16 bg-background">
@@ -40,11 +77,11 @@ const StoriesOfChange = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {stories.map((story) => (
+          {impactStories.map((story) => (
             <Card key={story.id} className="bg-gradient-card border-border/50 overflow-hidden hover:shadow-soft transition-all duration-300">
-            {story.image && (  <div className="h-48 overflow-hidden">
-                <img 
-                  src={story.image} 
+              {story.image && (<div className="h-48 overflow-hidden">
+                <img
+                  src={story.image}
                   alt={story.name}
                   className="w-full h-full object-cover"
                 />
@@ -59,11 +96,11 @@ const StoriesOfChange = () => {
                     {story.status}
                   </span>
                 </div>
-                
+
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {story.story}
                 </p>
-                
+
                 <div className="mb-4">
                   <span className="text-sm font-medium text-accent">
                     Impact: {story.impact}
@@ -75,9 +112,10 @@ const StoriesOfChange = () => {
                     <p className="text-sm text-foreground font-medium mb-2">
                       You can help the next child like Bibi. Every donation matters.
                     </p>
-                    <Button size="sm" className="bg-gradient-warm text-accent-foreground hover:opacity-90">
+                    <Link to='/donate' className="bg-gradient-warm text-accent-foreground hover:opacity-90">
                       Donate Now
-                    </Button>
+
+                    </Link>
                   </div>
                 )}
               </CardContent>
@@ -86,13 +124,22 @@ const StoriesOfChange = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button 
-            size="lg" 
-            variant="outline" 
+         { !showAll && <Button
+         onClick={()=>setShowAll(true)}
+            size="lg"
+            variant="outline"
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
           >
             Read More Stories
-          </Button>
+          </Button>}
+          { showAll && <Button
+         onClick={()=>setShowAll(false)}
+            size="lg"
+            variant="outline"
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+          >
+            See less
+          </Button>}
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import MediaDisplay from "@/components/mediaDispalay";
 const passedEvents = [
+
+  
   {
     id: 1,
     title: "Training Workshop",
@@ -53,6 +55,12 @@ const passedEvents = [
 const Programs = () => {
   const newEvent = JSON.parse(localStorage.getItem('events'))
    const [events, setEvents] = React.useState('passed');
+   const upcomingE = useMemo( ()=> {
+    return newEvent.filter(e=> e.status === 'upcoming') || []
+   }, [newEvent]);
+   const passE = useMemo(()=>{
+    return newEvent.filter(e=> e.status === 'past') || []
+   }, [newEvent])
   const programs = [
     {
       id: 1,
@@ -132,6 +140,8 @@ const Programs = () => {
   ];
 
   console.log('kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk',newEvent)
+  console.log(passE)
+  console.log(upcomingE)
 
   return (
     <div className="min-h-screen bg-background">
@@ -254,7 +264,7 @@ const Programs = () => {
           {/* Events Grid */}
           {events === 'passed' ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-              {passedEvents.map((event) => (
+              {passE.map((event) => (
                 <Card key={event.id} className="group bg-card border-border/50 hover:shadow-lg transition-all duration-300 overflow-hidden">
                   {/* Event Header */}
                   <CardHeader className="pb-4">
@@ -278,26 +288,29 @@ const Programs = () => {
                   {/* Event Content */}
                   <CardContent className="pt-0">
                     <p className="text-muted-foreground leading-relaxed line-clamp-4 mb-6">
-                      {event.describtion}
+                      {event.description}
                     </p>
                     
                     {/* Event Stats */}
                     <div className="flex items-center justify-between pt-4 border-t border-border/50">
                       <div className="flex items-center gap-3">
-                        <img 
+                       {/* { event.images?.length !== 0 && <img 
                           src={event.images[0]} 
                           alt="event thumbnail" 
                           className="w-8 h-8 rounded-full object-cover border-2 border-border" 
-                        />
+                        />} */}
+                       
                         <div className="text-sm">
-                          <p className="font-medium text-foreground">{event.images.length} Photos</p>
+                          <p className="font-medium text-foreground">{event.images?.length} Photos</p>
                           <p className="text-muted-foreground">by KELLENA Admin</p>
                         </div>
                       </div>
+                      
                       <Button size="sm" variant="ghost" className="text-primary hover:bg-primary/10" asChild>
                         <Link to={`/events/${event.id}`}>View Details</Link>
                       </Button>
                     </div>
+                    
                   </CardContent>
                 </Card>
               ))}
@@ -327,7 +340,7 @@ const Programs = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                   {/* Render upcoming events here */}
                   {/* Example: */}
-                  {newEvent.map((event: any, idx: number) => (
+                  {upcomingE.map((event: any, idx: number) => (
                     <Card key={event.id || idx} className="group bg-card border-border/50 hover:shadow-lg transition-all duration-300 overflow-hidden">
                       <CardHeader className="pb-4">
                         <div className="flex items-start justify-between">

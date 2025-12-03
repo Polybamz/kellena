@@ -87,7 +87,7 @@ const StoriesOfChange = () => {
                 />
               </div>)}
               <CardContent className="p-6">
-                <div className="flex justify-between items-start mb-3">
+                {/* <div className="flex justify-between items-start mb-3">
                   <div>
                     <h3 className="text-xl font-semibold text-foreground">{story.name}</h3>
                     <p className="text-muted-foreground text-sm">{story.age}</p>
@@ -95,16 +95,17 @@ const StoriesOfChange = () => {
                   <span className="px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">
                     {story.status}
                   </span>
-                </div>
+                </div> */}
 
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {story.story}
+                  {story.description}
                 </p>
 
                 <div className="mb-4">
-                  <span className="text-sm font-medium text-accent">
-                    Impact: {story.impact}
+                  <span className="text-sm font-medium ">
+                    Date: <span className="text-accent italic">{story.date}</span>
                   </span>
+
                 </div>
 
                 {story.name === "Little Bibi" && (

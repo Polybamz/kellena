@@ -72,7 +72,7 @@ const Footer = () => {
               
               <div className="space-y-2">
                 <p className="text-sm">
-                  <strong>Email:</strong> kellen.association21@gmail.com
+                  <strong>Email:</strong> info@kellena.org
                 </p>
                 <p className="text-sm">
                   <strong>Phone:</strong> +237 6 82 90 21 11

@@ -8,11 +8,12 @@ import m2 from "../assets/images/gallery/m2.jpg";
 import m3 from "../assets/images/gallery/m3.jpg";
 import m4 from "../assets/images/gallery/m4.jpg";
 import Kelvin from '../assets/images/admin/njoya.jpeg';
-import Frances from '../assets/images/admin/frances.jpeg';
+import Frances from '../assets/images/admin/mayoka.jpeg';
 import Elvis from '../assets/images/admin/elis.jpeg';
 import Ellen from '../assets/images/admin/ellen.jpeg';
 import Paul from '../assets/images/admin/paul.jpeg';
 import Emmanuel from '../assets/images/admin/emmnuel.jpeg';
+import Elbert from '../assets/images/admin/elbert.jpeg';
 
 const imagesList: Array<string> = [m1, m2, m3, m4, m4]
 const About = () => {
@@ -74,19 +75,30 @@ const About = () => {
       image: Emmanuel
     },
     {
+      name: "Mr. Frances",
+      role: "HR Mananger",
+      image: Frances
+    },
+    {
       name: "Mr. Elvis",
-      role: "Project Coordinator",
+      role: "Program ManagerProject Coordinator ",
       image:Elvis
     },
     {
       name: "Mrs Ellen",
-      role: "Finance Manager",
+      role: "Finance Mananger",
       image: Ellen
     },
     {
       name: "Mr Paul",
       role: "Communication Officer",
       image: Paul
+    },
+    
+    {
+      name: "Mr Elbert",
+      role: "Monetary and Evaluation Specialist",
+      image: Elbert
     },
    
    
@@ -193,7 +205,7 @@ const About = () => {
             </TabsContent>
 
             <TabsContent value="team" className="mt-8">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {teamMembers.map((member, index) => (
                   <Card key={index} className="bg-card border-border/50 border-primary hover:shadow-soft transition-all duration-300 text-center">
                     <CardContent className="p-6">

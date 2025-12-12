@@ -79,7 +79,7 @@ export const ImageGallery = ({ images = [], altTextPrefix = "Gallery image" }) =
         {/* Scrollable Image Container */}
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-4 p-4 rounded-xl bg-gray-50 shadow-inner border border-gray-200 custom-scrollbar scroll-snap-x-mandatory"
+          className="flex overflow-x-auto gap-4 p-4 rounded-xl bg-gray-50 shadow-inner border border-gray-200 custom-scrollbar scroll-snap-x-mandatory animate-scroll-right"
           style={{ minHeight: '280px', maxHeight: '350px' }} // Fixed height for consistent rows
           role="region"
           aria-label="Scrollable image list"

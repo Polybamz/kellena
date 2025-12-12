@@ -7,6 +7,12 @@ import m1 from "../assets/images/gallery/m1.jpg";
 import m2 from "../assets/images/gallery/m2.jpg";
 import m3 from "../assets/images/gallery/m3.jpg";
 import m4 from "../assets/images/gallery/m4.jpg";
+import Kelvin from '../assets/images/admin/njoya.jpeg';
+import Frances from '../assets/images/admin/frances.jpeg';
+import Elvis from '../assets/images/admin/elis.jpeg';
+import Ellen from '../assets/images/admin/ellen.jpeg';
+import Paul from '../assets/images/admin/paul.jpeg';
+import Emmanuel from '../assets/images/admin/emmnuel.jpeg';
 
 const imagesList: Array<string> = [m1, m2, m3, m4, m4]
 const About = () => {
@@ -58,45 +64,32 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: "Dr. Sarah Mbah",
+      name: "Mr. Kelvin",
       role: "Executive Director/CEO",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=300&h=300&fit=crop&crop=face"
+      image: Kelvin
     },
     {
-      name: "Emmanuel Ndeh",
+      name: "Mr. Emmanuel",
       role: "Program Manager",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=300&h=300&fit=crop&crop=face"
+      image: Emmanuel
     },
     {
-      name: "Grace Fontem",
+      name: "Mr. Elvis",
       role: "Project Coordinator",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&h=300&fit=crop&crop=face"
+      image:Elvis
     },
     {
-      name: "Peter Tabi",
+      name: "Mrs Ellen",
       role: "Finance Manager",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+      image: Ellen
     },
     {
-      name: "Mary Njoya",
-      role: "Communications Officer",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b932?w=300&h=300&fit=crop&crop=face"
+      name: "Mr Paul",
+      role: "Communication Officer",
+      image: Paul
     },
-    {
-      name: "David Ngong",
-      role: "Human Resources Manager",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      name: "Dr. Ruth Awa",
-      role: "Monitoring and Evaluation Specialist",
-      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      name: "John Kum",
-      role: "Administrative Assistant",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face"
-    }
+   
+   
   ];
 
   return (
@@ -154,7 +147,7 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed text-center">
-                  To promote <br/>1. An Inclusive and Enpowered society<br/> 2. Safe, equol, and Sustainable Communities
+                  To promote <br />1. An Inclusive and Enpowered society<br /> 2. Safe, equol, and Sustainable Communities
                   {/* An inclusive and empowered society where all individuals, regardless of their background or abilities, have equal opportunities and support in safe, equal, and sustainable communities. */}
                 </p>
               </CardContent>
@@ -200,9 +193,9 @@ const About = () => {
             </TabsContent>
 
             <TabsContent value="team" className="mt-8">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                 {teamMembers.map((member, index) => (
-                  <Card key={index} className="bg-card border-border/50 hover:shadow-soft transition-all duration-300 text-center">
+                  <Card key={index} className="bg-card border-border/50 border-primary hover:shadow-soft transition-all duration-300 text-center">
                     <CardContent className="p-6">
                       <div className="mb-4">
                         <img

@@ -81,7 +81,7 @@ const About = () => {
     },
     {
       name: "Mr. Elvis",
-      role: "Program ManagerProject Coordinator ",
+      role: "Project Coordinator ",
       image:Elvis
     },
     {

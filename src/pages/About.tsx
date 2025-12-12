@@ -170,8 +170,8 @@ const About = () => {
 
           <Tabs defaultValue="values" className="w-full">
             <TabsList className="grid w-[200px] grid-cols-2">
-              <TabsTrigger value="values">Core Values</TabsTrigger>
-              <TabsTrigger value="team">Our Team</TabsTrigger>
+              <TabsTrigger value="values" className="data-[state=active]:bg-primary/40 data-[state=active]:text-white text-primary font-bold " >Core Values</TabsTrigger>
+              <TabsTrigger value="team" className="data-[state=active]:bg-primary/40 data-[state=active]:text-white text-primary font-bold " >Our Team</TabsTrigger>
             </TabsList>
 
             <TabsContent value="values" className="mt-8">

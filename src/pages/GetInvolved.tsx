@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import AddVolunteerModal from "@/components/ui/addVolunteerModal";
 import { useNavigate } from "react-router-dom";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { platform } from "os";
 
 
 const GetInvolved = () => {
@@ -20,7 +21,7 @@ const GetInvolved = () => {
     {
       id: 1,
       title: "Donate",
-      aType:'',
+      aType:'volunteer',
       description: "Support our mission through financial contributions via Mobile Money, bank transfers, or in-kind donations.",
       icon: "💝",
       options: [
@@ -31,7 +32,8 @@ const GetInvolved = () => {
       ],
       paymentMethods: ["MTN Mobile Money", "Orange Money", "Bank Transfer", "In-kind Donations"],
       cta: "Start Donating",
-      highlight: true
+      highlight: true,
+      platforms:[]
     },
     {
       id: 2,

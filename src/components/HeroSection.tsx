@@ -128,10 +128,6 @@ const HeroSection = () => {
                   {heroSlides[currentSlide].cta}
                 </Button>
                 </Link>
-               
-                {/* <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-all text-lg px-8 py-6 hover:scale-105 active:scale-100">
-                  Watch Our Story
-                </Button> */}
               </motion.div>
 
               {/* Impact Stats with animated number */}

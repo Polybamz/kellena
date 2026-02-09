@@ -26,7 +26,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link to='/' className="flex items-center space-x-3">
             <img src={logo} alt="logo" className="h-[60px] w-[60px]" />
 
             {/* <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
@@ -38,7 +38,7 @@ const Navigation = () => {
                 Empathy & Empowerment Network
               </p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">

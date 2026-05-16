@@ -151,14 +151,16 @@ const Programs = () => {
       <section className="min-h-[300px] bg-[url(/src/assets/images/k-logo-2.jpg)]  bg-cover repeat-non">
         <div className=" px-4 sm:px-6 lg:px-8 bg-gradient-hero text-primary-foreground w-full min-h-[300px] flex flex-col justify-center items-center">
           <div className="max-w-4xl mx-auto text-center">
+            <p className="text-accent font-semibold uppercase tracking-wider mb-3">Our Programs</p>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Our Programs
+              Disability-Inclusive Child Protection at the Core
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8">
-              Comprehensive support for vulnerable communities
+            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-6">
+              Four flagship pillars, reinforced by complementary supporting sectors.
             </p>
-            <p className="text-lg text-primary-foreground/80 leading-relaxed">
-              From emergency medical assistance to livelihood empowerment, our programs address the most critical needs in rural Cameroon.
+            <p className="text-lg text-primary-foreground/85 leading-relaxed">
+              Every KELLENA program is designed to strengthen safeguarding systems and protect
+              the most excluded children in hard-to-reach communities across Cameroon.
             </p>
           </div>
         </div>

@@ -112,14 +112,18 @@ const About = () => {
       <section className=" min-h-[300px] bg-[url(/src/assets/images/k-logo-2.jpg)]  bg-cover repeat-non ">
         <div className="  px-4 sm:px-6 lg:px-8 bg-gradient-hero text-primary-foreground w-full min-h-[300px] flex flex-col justify-center items-center">
           <div className="max-w-4xl mx-auto text-center">
+            <p className="text-accent font-semibold uppercase tracking-wider mb-3">About KELLENA</p>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About KELLENA
+              A Grassroots Voice for Disability-Inclusive Child Protection
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8">
+            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-6">
               Keeping Empathy and Livelihood Empowerment Network Association
             </p>
-            <p className="text-lg text-primary-foreground/80 leading-relaxed">
-              A Community Based Organization dedicated to promoting mental health and psychosocial well-being, particularly for vulnerable individuals, including children with disabilities and those affected by various forms of violence.
+            <p className="text-lg text-primary-foreground/85 leading-relaxed">
+              KELLENA is a Cameroonian community-based organization specializing in disability-inclusive
+              child protection and safeguarding in hard-to-reach communities. Rooted in local trust,
+              we strengthen the systems that keep children—especially children with disabilities—safe,
+              included, and heard.
             </p>
           </div>
         </div>
@@ -307,15 +311,28 @@ const About = () => {
               Our Story
             </h2>
 
-            <div className="bg-card p-8 rounded-2xl border border-border/50">
+            <div className="bg-card p-8 rounded-2xl border border-border/50 text-left">
               <p className="text-muted-foreground leading-relaxed mb-6">
-                KELLENA was founded on the belief that empathy must be paired with action to create real change. Born from witnessing the gaps in healthcare and support systems in rural Cameroon, our organization began as a grassroots movement to bridge these critical needs.
+                KELLENA began where formal systems often end—in remote villages, displacement
+                settlements, and rural neighborhoods where children with disabilities are invisible
+                to mainstream services. Our founders listened first: to mothers walking miles for
+                care, to children silenced by abuse, to community leaders who knew the gaps but
+                lacked the tools.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                What started as individual acts of kindness has grown into a structured network of care, connecting vulnerable individuals with life-saving resources and empowering communities to build sustainable futures.
+                From those conversations, KELLENA emerged as a grassroots safeguarding organization
+                with one clear mission: to build community-led protection systems that include
+                every child. Over time, we have grown into a trusted local partner for institutional
+                donors, humanitarian agencies, and government bodies seeking credible reach into
+                hard-to-reach communities across the Northwest, Southwest, West, and Littoral regions.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Today, KELLENA combines deep community trust with the technical rigor required for
+                long-term systems strengthening—delivering disability-inclusive child protection,
+                safeguarding capacity building, psychosocial support, and humanitarian response.
               </p>
               <p className="text-accent font-medium">
-                "We are grateful for those who stood by us and helped save lives like Little Bibi's. You made empathy real."
+                "We don't deliver services to communities—we strengthen communities to protect their own."
               </p>
             </div>
           </div>

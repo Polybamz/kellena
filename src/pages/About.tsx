@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ImageGallery } from "@/components/imageGallery";
+import AboutCarousel from "@/components/AboutCarousel";
 import m1 from "../assets/images/gallery/m1.jpg";
 import m2 from "../assets/images/gallery/m2.jpg";
 import m3 from "../assets/images/gallery/m3.jpg";
@@ -301,8 +301,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* History */}
-      <ImageGallery images={imagesList} />
+      {/* Gallery Carousel */}
+      <AboutCarousel images={imagesList} />
 
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

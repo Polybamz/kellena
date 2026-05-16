@@ -1,9 +1,11 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import QuickImpact from "@/components/QuickImpact";
-import ProgramsOverview from "@/components/ProgramsOverview";
+import FlagshipPillars from "@/components/FlagshipPillars";
+import SupportingSectors from "@/components/SupportingSectors";
+import GeographicReach from "@/components/GeographicReach";
+import PartnershipSection from "@/components/PartnershipSection";
 import StoriesOfChange from "@/components/StoriesOfChange";
-// import BlogSection from "@/components/BlogSection";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
 import useGetData from "@/hooks/use-getData";
@@ -43,8 +45,11 @@ const Index = () => {
         <Navigation />
         <HeroSection />
         <QuickImpact />
-        <ProgramsOverview />
+        <FlagshipPillars />
         <StoriesOfChange />
+        <SupportingSectors />
+        <GeographicReach />
+        <PartnershipSection />
         {/* <BlogSection /> */}
         {/* <div className="w-full flex flex-col p-6">
         {activities.map((activity, index) => (

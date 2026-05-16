@@ -23,25 +23,31 @@ const HeroSection = () => {
 
   const heroSlides = [
     {
-      title: "Empowering Communities Through Compassion",
-      subtitle: "Building sustainable livelihoods and fostering empathy across Cameroon",
-      cta: "Join Our Mission",
-      stats: { number: "5,000+", label: "Lives Transformed" },
-      link: '/get-involved'
+      title: "Protecting Children. Strengthening Communities. Advancing Inclusion.",
+      subtitle: "KELLENA works in hard-to-reach communities across Cameroon to build disability-inclusive child protection systems and safeguard vulnerable populations.",
+      cta: "Partner With Us",
+      secondaryCta: "Explore Our Work",
+      stats: { number: "80+", label: "Hard-to-Reach Communities Reached" },
+      link: '/get-involved',
+      secondaryLink: '/programs'
     },
     {
-      title: "Youth Empowerment for Tomorrow",
-      subtitle: "Equipping young minds with skills, opportunities, and hope for the future",
-      cta: "Support Youth",
-      stats: { number: "200+", label: "Youth Trained" },
-      link: '/get-involved'
+      title: "Disability-Inclusive Child Protection",
+      subtitle: "We build community-led safeguarding structures that protect every child—especially children with disabilities—from violence, neglect, and exclusion.",
+      cta: "Partner With Us",
+      secondaryCta: "Explore Our Work",
+      stats: { number: "5,000+", label: "Children & Caregivers Reached" },
+      link: '/get-involved',
+      secondaryLink: '/programs'
     },
     {
-      title: "Building Empathy Circles",
-      subtitle: "Creating safe spaces for healing, understanding, and community connection",
-      cta: "Learn More",
-      stats: { number: "50+", label: "Communities Reached" },
-      link: '/about'
+      title: "Grassroots Trust. Scalable Impact.",
+      subtitle: "Rooted in local communities, KELLENA delivers safeguarding, psychosocial support, and humanitarian response where systems are weakest.",
+      cta: "Partner With Us",
+      secondaryCta: "Explore Our Work",
+      stats: { number: "200+", label: "Frontline Actors Trained" },
+      link: '/get-involved',
+      secondaryLink: '/about'
     }
   ];
 
@@ -124,9 +130,14 @@ const HeroSection = () => {
               {/* Hero CTA Buttons with hover animation */}
               <motion.div variants={textItemVariants} className="flex flex-col sm:flex-row gap-4">
                 <Link to={`${heroSlides[currentSlide].link}`}>
-                    <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent-light transition-all shadow-warm text-lg px-8 py-6 hover:scale-105 active:scale-100">
-                  {heroSlides[currentSlide].cta}
-                </Button>
+                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent-light transition-all shadow-warm text-lg px-8 py-6 hover:scale-105 active:scale-100">
+                    {heroSlides[currentSlide].cta}
+                  </Button>
+                </Link>
+                <Link to={`${heroSlides[currentSlide].secondaryLink}`}>
+                  <Button size="lg" variant="outline" className="bg-transparent border-2 border-primary-foreground/80 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-6 hover:scale-105 active:scale-100">
+                    {heroSlides[currentSlide].secondaryCta}
+                  </Button>
                 </Link>
               </motion.div>
 

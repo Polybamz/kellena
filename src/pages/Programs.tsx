@@ -53,13 +53,13 @@ const passedEvents = [
 ]
 
 const Programs = () => {
-  const newEvent = JSON.parse(localStorage.getItem('events'))
+  const newEvent = JSON.parse(localStorage.getItem('events') || '[]') || []
    const [events, setEvents] = React.useState('passed');
    const upcomingE = useMemo( ()=> {
-    return newEvent.filter(e=> e.status === 'upcoming') || []
+    return (newEvent || []).filter(e=> e.status === 'upcoming')
    }, [newEvent]);
    const passE = useMemo(()=>{
-    return newEvent.filter(e=> e.status === 'past') || []
+    return (newEvent || []).filter(e=> e.status === 'past')
    }, [newEvent])
   const programs = [
     {

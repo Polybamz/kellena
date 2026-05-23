@@ -80,13 +80,13 @@ export type ProgramType = {
 
 // Your Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyDrLqVdFd__ev_ukeasHmq-MROf5080xBM",
-  authDomain: "kellena-7fe21.firebaseapp.com",
-  projectId: "kellena-7fe21",
-  storageBucket: "kellena-7fe21.appspot.com", // fixed domain
-  messagingSenderId: "1044230705313",
-  appId: "1:1044230705313:web:cca9eb29bd3cca6f5a20e0",
-  measurementId: "G-K7R9J3YEHX",
+    apiKey: "AIzaSyA39zgk-fJJWGr28XTiz32gs2-cS5PIsmc",
+  authDomain: "kellen-5425c.firebaseapp.com",
+  projectId: "kellen-5425c",
+  storageBucket: "kellen-5425c.firebasestorage.app",
+  messagingSenderId: "344054458715",
+  appId: "1:344054458715:web:59ac743c6ec17e94a6d27e",
+  measurementId: "G-P379XNLRPF"
 };
 
 // Initialize Firebase
